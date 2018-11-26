@@ -1,0 +1,26 @@
+
+1.实现USB IAP功能，即通过插入U盘更新程序的功能，需要修改工程配置和程序运行地址。
+原0x8000000地址存放bootloader程序
+
+工程设置：将 IROM1  0x8000000 0x100000  改为 0x8008000  0x100000
+
+源文件system_stm32f2xx.c修改：
+
+#if 0 //ouhs 20170930
+#define VECT_TAB_OFFSET  0x00 /*!< Vector Table base offset field. 
+                                   This value must be a multiple of 0x200. */
+#else
+#define VECT_TAB_OFFSET  0x8000
+#endif	
+
+
+2. 代码优化等级需使用O2或O3。若不使用优化，LWIP的Ping服务有问题，开机后能ping通，延时越来越长，几分钟后ping不通。
+
+
+3. 对于多处用到的随时可能发生变化的变量，一定要用volatile声明。否则，使用优化等级时，会被优化掉。
+
+
+4. SD卡FatFS，如果直接从外部SRAM读取数据写入到SD卡，8bit总线与SD DMA速度匹配有问题。需要先将外部SRAM读取到内部Buff，比如8K，再将Buff通过DMA写入SD卡。
+
+
+5. 网络部分。5分钟后没有插网线使关掉芯片(会误触发!!!)、或使芯片进入低功耗模式（该方案未实现）

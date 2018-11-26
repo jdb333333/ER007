@@ -1,0 +1,25 @@
+
+1.机型及编译开关：
+ECR-99：CASE_ECR99   已批量。
+
+MCR-30：CASE_MCR30   已批量。主显128032，客显128032。主客显都是两行显示。
+
+MCR-007：CASE_MCR30  使用MCR30主板，在此基础上增加编译选项OD_4ROW。主显128064，客显128032两行显示。
+
+ECR-100F：CASE_ECR100F  已停产。客户还有样机。
+
+ECR-100S：CASE_ECR100S  已停产。出过样机。
+
+ER-260F：CASE_ER260F   只出了样机。主客显都是1602。
+
+
+
+2.以太网：	CASE_ETHERNET
+
+3.GPRS：CASE_GPRS
+
+4.双卡（NAND+SD）：TWO_SDCARDS,NAND_DISK
+
+5.字体：CHAR_6X12,MCR-007可能用到。
+
+6.调试版本：FOR_DEBUG

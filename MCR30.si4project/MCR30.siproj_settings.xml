@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectSettings
+	AppVer="4.00.0084"
+	AppVerMinReader="4.00.0034"
+	GlobalConfiguration="1"
+	GlobalWorkspace="0"
+	LocalsInDb="0"
+	IndexMembers="1"
+	IndexFragments="1"
+	UseMasterFileList="0"
+	SourceDir="..\"
+	BackupDir="%PROJECT_DATA_DIR%\Backup"
+	MasterFileList="%PROJECT_SOURCE_DIR%\%PROJECT_NAME%_filelist.txt"
+	IsImportProject="0"
+	>
+	<Imports>
+		<ImportedLibs/>
+	</Imports>
+	<ParseConditions>
+		<Defines>
+			<define id="CASE_ETHERNET" value="1" />
+			<define id="CASE_GPRS" value="1" />
+			<define id="CASE_MCR30" value="1" />
+			<define id="FOR_DEBUG" value="1" />
+			<define id="NAND_DISK" value="1" />
+			<define id="STM32F2XX" value="1" />
+			<define id="TWO_SDCARDS" value="1" />
+			<define id="USE_EMBEDDED_PHY" value="1" />
+			<define id="USE_STDPERIPH_DRIVER" value="1" />
+			<define id="USE_STM322xG_EVAL" value="1" />
+			<define id="USE_USB_OTG_FS" value="1" />
+		</Defines>
+	</ParseConditions>
+</ProjectSettings>
