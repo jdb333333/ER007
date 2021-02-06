@@ -1,0 +1,206 @@
+---- jdb Matches (205 in 32 files) ----
+appl.h (EOSCLCD) line 5 : //jdb2018-09-03客显两行显示
+appl.h (EOSCLCD) line 47 : #define		SRAMSIZE		0x100000//jdb2019-03-04
+appl.h (EOSCLCD) line 69 : #if defined(CASE_RAMVIP)//jdb2019-03-07 ECRVIP放SRAM区
+appl.h (EOSCLCD) line 146 : #define MyFlags(f)      BIT(ApplVar.MyFlags,f)//jdb2018-09-03
+appl.h (EOSCLCD) line 697 : #elif defined(CASE_MCR30)//jdb2018-09-02
+appl.h (EOSCLCD) line 2445 : //jdb2018-09-02
+APPLICATION in appl.h (EOSCLCD) : 		struct TNETWORK NetWork;//jdb2018-09-02
+bios.h (EOSCLCD) line 266 : #if 1//jdb2018-09-03
+bios.h (EOSCLCD) line 360 : extern WORD Bios_PortWrite(BYTE NumCom, BYTE *TxData, WORD NumBytes, BYTE Flags);//jdb2018-09-02
+BIOS_CHN.h (EOSCLCD) line 51 : //jdb2018-09-02 函数mClearInvAttr mSetInvAttr有定义，不需要定义宏
+Chinaapp.c (EOSCLCD) line 53 : #elif (CASE_MCR30)//jdb2018-09-02
+Chinaapp.c (EOSCLCD) line 123 : 	#ifdef CASE_MCR30 //jdb2018-09-03
+Chinaapp.c (EOSCLCD) line 284 : 	#elif defined(CASE_MCR30)//jdb2018-09-02
+Chinaapp.c (EOSCLCD) line 888 :      //jdb2018-09-02
+Chinaapp.c (EOSCLCD) line 1187 : #elif (defined(CASE_MCR30)) //jdb2018-09-02
+Chinaapp.c (EOSCLCD) line 1283 : BYTE	ASCIIKEY[MAXKEYB]={//jdb2019-03-05适应九宫格，里面的数值会变动
+Chinaapp.c (EOSCLCD) line 1317 : #if 1//jdb2019-03-05九宫格，以'.'~'9'来索引
+Chinaapp.c (EOSCLCD) line 1373 : BYTE	NUMASCII[MAXKEYB]={//jdb2019-03-05适应九宫格，里面的数值会变动
+Chinaapp.c (EOSCLCD) line 1407 : #if 1//jdb2019-03-05九宫格，以'.'~'9'来索引
+ChnDIsp.h (EOSCLCD) line 16 : #define SCREENLN	4	//jdb2019-03-08 4行显示
+ChnDIsp.h (EOSCLCD) line 18 : #define SCREENWD	20	//jdb2019-03-08
+CheckInput in CHNInput.c (EOSCLCD) : #ifndef CASE_MCR30 //jdb2018-09-05
+CHNInput.c (EOSCLCD) line 1145 : CONST char *T9KeysDef[24]={//jdb2019-03-05 九宫格
+LineEditor in CHNInput.c (EOSCLCD) : 	int i, j;//jdb2019-03-05 九宫格
+LineEditor in CHNInput.c (EOSCLCD) : 	static BYTE  CharOld=0;//jdb2019-03-05 上一次按键显示字符
+LineEditor in CHNInput.c (EOSCLCD) : 	static ULONG keyDelay=0;//jdb2019-03-05 两次按键之间的间隔
+LineEditor in CHNInput.c (EOSCLCD) : 		if((ch.C.Low>='a'|| ch.C.Low>='A') && (ch.C.Low<='l' || ch.C.Low<='L') && Appl_ProgLine > 0){//jdb2019-03-05 九宫格
+LineEditor in CHNInput.c (EOSCLCD) : #ifdef PUTS_2LINE//jdb2018-09-03
+LineEditor in CHNInput.c (EOSCLCD) : #ifdef PUTS_2LINE//jdb2018-09-03
+TransactionVoid in Correc.c (EOSCLCD) : 		#ifdef PUTS_2LINE//jdb2018-09-03
+TransactionVoid in Correc.c (EOSCLCD) : 		#ifdef PUTS_2LINE//jdb2018-09-03
+TransactionVoid in Correc.c (EOSCLCD) : 		#ifdef PUTS_2LINE//jdb2018-09-03
+TransactionVoid in Correc.c (EOSCLCD) : 		#ifdef PUTS_2LINE//jdb2018-09-03
+Correction in Correc.c (EOSCLCD) : 			#ifdef PUTS_2LINE//jdb2018-09-03
+Correction in Correc.c (EOSCLCD) : 			#ifdef PUTS_2LINE//jdb2018-09-03
+Currency in Currency.c (EOSCLCD) : 	#ifdef PUTS_2LINE//jdb2018-09-03
+Currency in Currency.c (EOSCLCD) : 	#ifdef PUTS_2LINE//jdb2018-09-03
+ProcessDept in Depart.c (EOSCLCD) : 		#ifdef PUTS_2LINE//jdb2018-09-03
+ProcessDept in Depart.c (EOSCLCD) : 		#ifdef PUTS_2LINE//jdb2018-09-03
+Discount in Discount.c (EOSCLCD) : 	#ifdef PUTS_2LINE//jdb2018-09-03
+Discount in Discount.c (EOSCLCD) : 	#ifdef PUTS_2LINE//jdb2018-09-03
+ExtModules.c (EOSCLCD) line 3527 : //jdb2018-09-03
+CheckFirmKey in Firmkey.c (EOSCLCD) : 				if(Appl_ProgLine < ApplVar.sCursor.y){//jdb2019-03-08调整显示行
+CheckMode in Firmkey.c (EOSCLCD) :     //jdb2019-03-12进纸键只在销售模式下生效
+SuspendECR in Firmkey.c (EOSCLCD) :     //LED_Off();//jdb2018-09-03
+SuspendECR in Firmkey.c (EOSCLCD) :         //LED_On();//jdb2018-09-03
+Fiscal.c (EOSCLCD) line 46 : //jdb2018-09-03
+Fixed.c (EOSCLCD) line 26 : extern void PrintSaveStr(void);//jdb2018-08-21
+Fixed.c (EOSCLCD) line 335 : 				#ifdef PUTS_2LINE//jdb2018-09-03
+Fixed.c (EOSCLCD) line 581 : 				PrintSaveStr();//jdb2018-08-21 打印保存的文本
+Fixed.c (EOSCLCD) line 595 : 		#ifdef PUTS_2LINE//jdb2018-09-03
+Fixed.c (EOSCLCD) line 603 : 		#ifdef PUTS_2LINE//jdb2018-09-03
+ProcessKeyMacro in Fixed.c (EOSCLCD) : 						#ifdef PUTS_2LINE//jdb2018-09-03
+Flowbill.c (EOSCLCD) line 13 : //jdb2018-08-22 打印票据文本流水
+Flowbill.c (EOSCLCD) line 47 : void DispRECEIPT(void);//jdb2018-08-20 显示打印票据
+Flowbill.c (EOSCLCD) line 89 : 	{sizeof(struct CDC_RECEIPT),         &DispRECEIPT},         //jdb2018-08-20 显示打印票据
+WriteToLogRam in Flowbill.c (EOSCLCD) : 		pTo = ApplVar.FlowHeader.FromAddr;//jdb2019-03-04
+Read_Flow in Flowbill.c (EOSCLCD) : 		//jdb2018-08-22 打印票据文本流水
+Flowbill.c (EOSCLCD) line 407 : //jdb2018-08-20 保存票据内容
+Flowbill.c (EOSCLCD) line 1095 : //jdb2018-08-20 显示打印票据
+LoadReceipLog in Flowbill.c (EOSCLCD) : 			case RECEIPTLOG://jdb2018-08-23 增加打印票据文本功能
+LoadReceipLog in Flowbill.c (EOSCLCD) : 					if (sFunc==TENDLOG || sFunc == RECEIPTLOG)//jdb2018-08-23 增加打印票据文本功能
+flowbill.h (EOSCLCD) line 72 : #define  RECEIPTLOG		28		//jdb2018-08-22 打印票据文本
+flowbill.h (EOSCLCD) line 80 : #define  LOGTYPEMAX  	28      //jdb2018-07-22 增加打印票据文本
+flowbill.h (EOSCLCD) line 97 : #define LOGALARMON	2048     // 当剩余空间少于此值，报警 //jdb2018-08-22
+flowbill.h (EOSCLCD) line 130 : //jdb2018-08-20 增加票据流水【纯文本】
+FLOWREC in flowbill.h (EOSCLCD) :     struct CDC_RECEIPT			 CDC_Receipt;				//jdb2018-08-20 receipt print info
+flowbill.h (EOSCLCD) line 464 : short Receipt_Data(BYTE cmd);//jdb2018-08-20
+General.c (EOSCLCD) line 6 : extern BYTE PrBuffer[];//jdb2018-08-21
+ClearEntry in General.c (EOSCLCD) : 		#ifdef PUTS_2LINE//jdb2018-09-03
+RegiInit in General.c (EOSCLCD) : 		Receipt_Data(REGISLOG);//jdb2018-08-20打印票据开始信息
+PromotionBeep in General.c (EOSCLCD) : 		#ifdef PUTS_2LINE//jdb2018-09-03
+PromotionBeep in General.c (EOSCLCD) : 		#ifdef PUTS_2LINE//jdb2018-09-03
+PromotionBeep in General.c (EOSCLCD) : 	#ifdef PUTS_2LINE//jdb2018-09-03
+Gprs.c (EOSCLCD) line 6 : #define GPRSSENDTXT //jdb2018-08-27发送一张票据
+Gprs.c (EOSCLCD) line 7 : #define GPRS_CLOSE_DEBUG //jdb2019-03-07关闭GPRS功能
+Gprs.c (EOSCLCD) line 44 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs.c (EOSCLCD) line 59 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs.c (EOSCLCD) line 487 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs.c (EOSCLCD) line 592 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+GPRS_APN_CSD in Gprs.c (EOSCLCD) : 					//SIM800_PowerOn();//jdb2019-02-27 
+Gprs.c (EOSCLCD) line 960 : 				//SIM800_PowerOn();//jdb2019-02-27 
+GPRS_ATCIPSTART in Gprs.c (EOSCLCD) : 		SETBIT(at_state, SND_CIPSTART);//jdb2019-03-12已经发送CIPSTART命令
+Gprs.c (EOSCLCD) line 1262 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs.c (EOSCLCD) line 1290 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs.c (EOSCLCD) line 1362 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs.c (EOSCLCD) line 1451 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs.c (EOSCLCD) line 1587 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs.c (EOSCLCD) line 1822 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs.c (EOSCLCD) line 1860 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs.c (EOSCLCD) line 1979 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs.c (EOSCLCD) line 2092 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs.c (EOSCLCD) line 2277 : #ifdef GPRSSENDTXT //jdb2018-08-27 发送纯文本数据
+Gprs.c (EOSCLCD) line 2378 : #if defined(GPRS_FORDEBUG)//jdb2019-03-04调试用
+Gprs.c (EOSCLCD) line 4403 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+GPRS_DrawSignal in Gprs.c (EOSCLCD) : 						//mDrawGPRSSignal(s,SIGNAL_X,SCREENLN-1);//jdb2018-09-03
+gprs.h (EOSCLCD) line 31 : #define GPRSPORT 2   //jdb2019-02-27
+gprs.h (EOSCLCD) line 68 : short GPRSDataDelRD(BYTE *str, short size);//jdb2019-02-27去掉回车和换行符
+gprs.h (EOSCLCD) line 69 : int GPRS_AT();//jdb2019-02-27增加判断AT命令是否可用，可用GPRS模块正常，不可用GPRS模块有问题
+gprs.h (EOSCLCD) line 70 : int GPRS_ATCPIN();//jdb2019-03-11检测SIM卡状态
+gprs.h (EOSCLCD) line 71 : int GPRS_ATCSTT();//jdb2019-03-11开始APN任务
+gprs.h (EOSCLCD) line 72 : int GPRS_ATCIISR();//jdb2019-03-11开始建立无线连接
+gprs.h (EOSCLCD) line 73 : int GPRS_ATCIFSR();//jdb2019-03-11获取IP地址
+gprs.h (EOSCLCD) line 75 : BYTE GPRS_APN_CSD();//jdb2019-02-27开始APN任务，建立无线链路
+gprs.h (EOSCLCD) line 76 : BYTE GPRS_TCP_CONNECT();//jdb2019-02-27连接服务器
+gprs.h (EOSCLCD) line 77 : BYTE GPRS_TCP_CLOSE();//jdb2019-02-27关闭TCP连接
+gprs.h (EOSCLCD) line 78 : BYTE GPRS_TCP_STATUS();//jdb2019-02-27检测TCP连接状态
+gprs.h (EOSCLCD) line 79 : void GPRS_RESET_DELAY();//jdb2019-02-27重置TCP空闲连接超时时间
+gprs.h (EOSCLCD) line 82 : void GPRSDealy(ULONG sWaitFor);//jdb2019-02-27延时
+Gprs20190304.c (EOSCLCD) line 6 : #define GPRSSENDTXT //jdb2018-08-27发送一张票据
+Gprs20190304.c (EOSCLCD) line 43 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs20190304.c (EOSCLCD) line 58 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs20190304.c (EOSCLCD) line 455 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs20190304.c (EOSCLCD) line 560 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+GPRS_APN_CSD in Gprs20190304.c (EOSCLCD) : 				SIM800_PowerOn();//jdb2019-02-27 
+Gprs20190304.c (EOSCLCD) line 781 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs20190304.c (EOSCLCD) line 879 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs20190304.c (EOSCLCD) line 968 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs20190304.c (EOSCLCD) line 1387 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs20190304.c (EOSCLCD) line 1623 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs20190304.c (EOSCLCD) line 1769 : #ifdef GPRSSENDTXT //jdb2018-08-27 发送纯文本数据
+Gprs20190304.c (EOSCLCD) line 3798 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+GPRS_DrawSignal in Gprs20190304.c (EOSCLCD) : 						//mDrawGPRSSignal(s,SIGNAL_X,SCREENLN-1);//jdb2018-09-03
+Gprs20190311.c (EOSCLCD) line 6 : #define GPRSSENDTXT //jdb2018-08-27发送一张票据
+Gprs20190311.c (EOSCLCD) line 7 : //#define GPRS_CLOSE_DEBUG //jdb2019-03-07关闭GPRS功能
+Gprs20190311.c (EOSCLCD) line 44 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs20190311.c (EOSCLCD) line 59 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs20190311.c (EOSCLCD) line 479 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs20190311.c (EOSCLCD) line 584 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+GPRS_APN_CSD in Gprs20190311.c (EOSCLCD) : 					//SIM800_PowerOn();//jdb2019-02-27 
+Gprs20190311.c (EOSCLCD) line 776 : 				//SIM800_PowerOn();//jdb2019-02-27 
+Gprs20190311.c (EOSCLCD) line 995 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs20190311.c (EOSCLCD) line 1023 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs20190311.c (EOSCLCD) line 1095 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs20190311.c (EOSCLCD) line 1184 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs20190311.c (EOSCLCD) line 1320 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs20190311.c (EOSCLCD) line 1555 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs20190311.c (EOSCLCD) line 1593 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs20190311.c (EOSCLCD) line 1712 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs20190311.c (EOSCLCD) line 1825 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs20190311.c (EOSCLCD) line 2010 : #ifdef GPRSSENDTXT //jdb2018-08-27 发送纯文本数据
+Gprs20190311.c (EOSCLCD) line 2111 : #if defined(GPRS_FORDEBUG)//jdb2019-03-04调试用
+Gprs20190311.c (EOSCLCD) line 4136 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+GPRS_DrawSignal in Gprs20190311.c (EOSCLCD) : 						//mDrawGPRSSignal(s,SIGNAL_X,SCREENLN-1);//jdb2018-09-03
+Gprs_backup.c (EOSCLCD) line 6 : #define GPRSSENDTXT //jdb2018-08-27发送一张票据
+Gprs_backup.c (EOSCLCD) line 43 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs_backup.c (EOSCLCD) line 58 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs_backup.c (EOSCLCD) line 436 :  #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs_backup.c (EOSCLCD) line 514 : #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs_backup.c (EOSCLCD) line 613 :  #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+Gprs_backup.c (EOSCLCD) line 1379 : #ifdef GPRSSENDTXT //jdb2018-08-27 发送纯文本数据
+Gprs_backup.c (EOSCLCD) line 3408 :  #if defined(GPRS_SIM800)//jdb2019-02-27 GPRS_SIM800
+GPRS_DrawSignal in Gprs_backup.c (EOSCLCD) :                     //mDrawGPRSSignal(s,SIGNAL_X,SCREENLN-1);//jdb2018-09-03
+TestCustomer in Hardtest.c (EOSCLCD) : 			#ifdef PUTS_2LINE//jdb2018-09-03
+WriteECRVIPVar in ICCard.c (EOSCLCD) :     #if defined(CASE_RAMVIP)//jdb2019-03-07 ECRVIP放SRAM区
+WriteECRVIPVar in ICCard.c (EOSCLCD) :     	#if defined(CASE_RAMVIP)//jdb2019-03-07 ECRVIP放SRAM区
+InitECRVIP in ICCard.c (EOSCLCD) : 	#if defined(CASE_RAMVIP)//jdb2019-03-07 ECRVIP放SRAM区
+AddNewECRVIP in ICCard.c (EOSCLCD) : #if defined(CASE_RAMVIP)//jdb2019-03-07 ECRVIP放SRAM区
+AddNewECRVIP in ICCard.c (EOSCLCD) :         #if defined(CASE_RAMVIP)//jdb2019-03-07 ECRVIP放SRAM区
+InitApplication in Initappl.c (EOSCLCD) : 			#if defined(CASE_RAMVIP)//jdb2019-03-07 ECRVIP放SRAM区
+Main.c (EOSCLCD) line 12 : //jdb2018-08-21 保存打印文本
+main_pc in Main.c (EOSCLCD) : #if 0//jdb2018-09-03
+main_pc in Main.c (EOSCLCD) : 	SIM800_PowerOn();//jdb2019-02-27
+main_pc in Main.c (EOSCLCD) : 	//GPRSDealy(SECONDS(5));//jdb2019-02-27
+KeyInput in Main.c (EOSCLCD) : #if 1//jdb2019-03-08 有虚拟按键
+KeyInput in Main.c (EOSCLCD) : 					if(Appl_ProgLine>1 && ApplVar.KeyNo == ApplVar.AP.FirmKeys[ID_DELETE]){//jdb2019-03-12编辑模式下有删除键
+OutPrint in Main.c (EOSCLCD) : 				SavePrintStr(TESTBIT(ApplVar.PrintLayOut,BIT2)?CMDP_DR:CMDP_R, Line);//jdb2018-08-21 保存打印文本
+OutPrint in Main.c (EOSCLCD) : 				SavePrintStr(TESTBIT(ApplVar.PrintLayOut,BIT2)?CMDP_DR:CMDP_R, spacebuf);//jdb2018-08-21 保存打印文本
+OutPrint in Main.c (EOSCLCD) : 	#if 0//jdb2019-03-08 调试用，不打印
+MEMORY.c (EOSCLCD) line 20 : #if defined(CASE_RAMVIP)//jdb2019-03-07 ECRVIP放SRAM区
+PbFunction in Pb.c (EOSCLCD) : 				#ifdef PUTS_2LINE//jdb2018-09-03
+PbFunction in Pb.c (EOSCLCD) : 				#ifdef PUTS_2LINE//jdb2018-09-03
+PbFunction in Pb.c (EOSCLCD) : 				#ifdef PUTS_2LINE//jdb2018-09-03
+PbFunction in Pb.c (EOSCLCD) : 				#ifdef PUTS_2LINE//jdb2018-09-03
+PbFunction in Pb.c (EOSCLCD) : 			#ifdef PUTS_2LINE//jdb2018-09-03
+PbFunction in Pb.c (EOSCLCD) : 			#ifdef PUTS_2LINE//jdb2018-09-03
+PbFunction in Pb.c (EOSCLCD) : 				#ifdef PUTS_2LINE//jdb2018-09-03
+PbFunction in Pb.c (EOSCLCD) : 				#ifdef PUTS_2LINE//jdb2018-09-03
+PbFunction in Pb.c (EOSCLCD) : 				#ifdef PUTS_2LINE//jdb2018-09-03
+PbFunction in Pb.c (EOSCLCD) : 				#ifdef PUTS_2LINE//jdb2018-09-03
+PbFunction in Pb.c (EOSCLCD) : 		#ifdef PUTS_2LINE//jdb2018-09-03
+PbFunction in Pb.c (EOSCLCD) : 		#ifdef PUTS_2LINE//jdb2018-09-03
+ProcessOnePlu in Plu.c (EOSCLCD) : 			#ifdef PUTS_2LINE//jdb2018-09-03
+ProcessOnePlu in Plu.c (EOSCLCD) : 			#ifdef PUTS_2LINE//jdb2018-09-03
+Print.c (EOSCLCD) line 8 : BYTE	PrBuffer[2000];//jdb2018-08-21 保存打印文本
+Print.c (EOSCLCD) line 9 : BYTE	PrBuffer2[2000];//jdb2018-08-21 保存打印文本
+Print.c (EOSCLCD) line 386 : //jdb2018-08-21 打印保存的文本
+Print.c (EOSCLCD) line 453 : //jdb2018-08-21 保存打印文本
+SavePrintStr in Print.c (EOSCLCD) : 	BYTE databuf[64];//jdb2019-03-08 
+ReceiptIssue in Print.c (EOSCLCD) : 			//jdb2018-08-21 初始化BUFFER
+ReceiptIssue in Print.c (EOSCLCD) : 			Receipt_Data(RECEIPTLOG);//jdb2018-08-22 打印票据文本结束
+Tender in Tender.c (EOSCLCD) : 				#ifdef PUTS_2LINE//jdb2018-09-03
+Tender in Tender.c (EOSCLCD) : 					#ifdef PUTS_2LINE//jdb2018-09-03
+Tender in Tender.c (EOSCLCD) : 					#ifdef PUTS_2LINE//jdb2018-09-03
+Tender in Tender.c (EOSCLCD) : 				#ifdef PUTS_2LINE//jdb2018-09-03
+Tender in Tender.c (EOSCLCD) : 				#ifdef PUTS_2LINE//jdb2018-09-03
+Tender in Tender.c (EOSCLCD) : 			#ifdef PUTS_2LINE//jdb2018-09-03
+Tender in Tender.c (EOSCLCD) : 			#ifdef PUTS_2LINE//jdb2018-09-03
+Tender in Tender.c (EOSCLCD) : 		#ifdef PUTS_2LINE//jdb2018-09-03
+Tender in Tender.c (EOSCLCD) : 			#ifdef PUTS_2LINE//jdb2018-09-03
+Tender in Tender.c (EOSCLCD) : 			#ifdef PUTS_2LINE//jdb2018-09-03
+Tender in Tender.c (EOSCLCD) : #if 0//jdb2019-02-27测试用
+Tender in Tender.c (EOSCLCD) : 			#if 0//jdb2019-03-11
+CheckTime in Timer.c (EOSCLCD) :                 //LED_Off();//jdb2018-09-03
+CheckTime in Timer.c (EOSCLCD) : 		#ifdef PUTS_2LINE//jdb2018-09-03

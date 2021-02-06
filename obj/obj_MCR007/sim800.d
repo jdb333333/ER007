@@ -1,10 +1,10 @@
-.\obj\obj_mcr007\sim800.o: Demo\sim800.c
-.\obj\obj_mcr007\sim800.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
-.\obj\obj_mcr007\sim800.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
-.\obj\obj_mcr007\sim800.o: Demo\sim800.h
+.\obj\obj_mcr007\sim800.o: EOSCLCD\sim800.c
+.\obj\obj_mcr007\sim800.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\obj_mcr007\sim800.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\obj_mcr007\sim800.o: EOSCLCD\sim800.h
 .\obj\obj_mcr007\sim800.o: .\USER\inc\stm32f2xx.h
 .\obj\obj_mcr007\sim800.o: .\Libraries\CMSIS\Include\core_cm3.h
-.\obj\obj_mcr007\sim800.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\obj_mcr007\sim800.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\obj_mcr007\sim800.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\obj\obj_mcr007\sim800.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\obj\obj_mcr007\sim800.o: .\Libraries\CMSIS\system_stm32f2xx.h
@@ -37,4 +37,4 @@
 .\obj\obj_mcr007\sim800.o: .\Libraries\STM32F2xx_StdPeriph_Driver\inc\stm32f2xx_wwdg.h
 .\obj\obj_mcr007\sim800.o: .\Libraries\STM32F2xx_StdPeriph_Driver\inc\misc.h
 .\obj\obj_mcr007\sim800.o: .\USER\inc\usart.h
-.\obj\obj_mcr007\sim800.o: .\USER\inc\SysTick.h
+.\obj\obj_mcr007\sim800.o: EOSCLCD\SysTick.h

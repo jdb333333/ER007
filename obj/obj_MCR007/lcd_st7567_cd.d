@@ -1,9 +1,9 @@
 .\obj\obj_mcr007\lcd_st7567_cd.o: USER\lcd_st7567_cd.c
-.\obj\obj_mcr007\lcd_st7567_cd.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\obj_mcr007\lcd_st7567_cd.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\obj_mcr007\lcd_st7567_cd.o: .\EOSCLCD\king.h
-.\obj\obj_mcr007\lcd_st7567_cd.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
-.\obj\obj_mcr007\lcd_st7567_cd.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
-.\obj\obj_mcr007\lcd_st7567_cd.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\obj\obj_mcr007\lcd_st7567_cd.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\obj_mcr007\lcd_st7567_cd.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\obj_mcr007\lcd_st7567_cd.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\obj_mcr007\lcd_st7567_cd.o: .\EOSCLCD\debug.h
 .\obj\obj_mcr007\lcd_st7567_cd.o: .\USER\inc\include.h
 .\obj\obj_mcr007\lcd_st7567_cd.o: .\USER\inc\stm32f2xx.h

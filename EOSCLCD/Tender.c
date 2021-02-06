@@ -878,6 +878,15 @@ void Tender()
 		    ApplVar.FSplit = 0;
 
 #if (defined(CASE_INDONESIA) && (defined(CASE_GPRS)))
+#if 0//jdb2019-02-27测试用
+				SETBIT(ApplVar.MyFlags,ZREPORT);
+                ApplVar.FCurr = 0;
+                ApplVar.AmtDecimal = NO_DECIMAL;	    /* restore local values */
+                Prefix1 = PREFIX_1;
+                Prefix2 = PREFIX_2;
+                GPRSSendECR_LOG();
+
+#else
             if (TESTBIT(ApplVar.DaysMust,BIT7))//是自动发送数据，发送流水
             {
                 SETBIT(ApplVar.MyFlags,ZREPORT);
@@ -887,10 +896,13 @@ void Tender()
                 Prefix2 = PREFIX_2;
                 GPRSSendECR_LOG();
             }
+			#if 0//jdb2019-03-11
             else//ccr2015-08-03>>>>>>发送heartbeat数据
             {
                 GPRSSendECR_HeartBeat(1);//立即发送Heart-Beat
             }
+			#endif
+			#endif
 #endif
 		}
     }

@@ -1272,6 +1272,7 @@ void STM32_Initial(void)
 
 void Beep(uint8_t blen)
 {
+#if 1//jdb2019-03-08 È¥µô·äÃùÆ÷
 #if !defined(FOR_DEBUG)
     BEEP_ON();
     if (blen == 1)
@@ -1282,6 +1283,7 @@ void Beep(uint8_t blen)
         beep_len = 80;
     else
         beep_len = 10;
+#endif
 #endif
 }
 

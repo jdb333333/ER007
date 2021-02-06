@@ -784,6 +784,9 @@ void InitApplication(BYTE initMust)
 
 
             sAddr = ApplVar.SIZE_EXTRAM;
+			#if defined(CASE_RAMVIP)//jdb2019-03-07 ECRVIP放SRAM区
+			sAddr -= SIZE_VIPRAM;//减去VIMRAM区大小
+			#endif
             if (sAddr && (sAddr > ApplVar.AP.StartAddress[AddrEndP] - SIZE_FLOWRAM))
             {//重新计算内存中可容纳的单品数目
                 sAddr -= ApplVar.AP.StartAddress[AddrEndP] - SIZE_FLOWRAM;//

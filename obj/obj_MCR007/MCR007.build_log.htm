@@ -3,60 +3,70 @@
 <pre>
 <h1>礦ision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: μVision V5.18.0.0
-Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: jdb Administrator, jdb, LIC=UJWMM-X0BKA-UG07Q-NMRPK-X7RGW-GKR2M
+IDE-Version: μVision V5.25.3.0
+Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: jiang dongbo, JDK, LIC=EPPDY-I1YKW-LU44M-X67U8-D6AJ3-F9QM9
  
 Tool Versions:
-Toolchain:       MDK-ARM Standard  Version: 5.18
-Toolchain Path:  D:\keil5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.06 update 1 (build 61)
-Assembler:       Armasm.exe V5.06 update 1 (build 61)
-Linker/Locator:  ArmLink.exe V5.06 update 1 (build 61)
-Library Manager: ArmAr.exe V5.06 update 1 (build 61)
-Hex Converter:   FromElf.exe V5.06 update 1 (build 61)
-CPU DLL:         SARMCM3.DLL V5.18
-Dialog DLL:      DCM.DLL V1.13.6.0
-Target DLL:      Segger\JL2CM3.dll V2.99.18.0
-Dialog DLL:      TCM.DLL V1.14.8.0
+Toolchain:       MDK-ARM Professional  Version: 5.14.0.0
+Toolchain Path:  D:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.05 update 1 (build 106)
+Assembler:       Armasm.exe V5.05 update 1 (build 106)
+Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
+Library Manager: ArmAr.exe V5.05 update 1 (build 106)
+Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
+CPU DLL:         SARMCM3.DLL V5.14.0.0
+Dialog DLL:      DCM.DLL V1.13.1.0
+Target DLL:      Segger\JL2CM3.dll V2.99.13.0
+Dialog DLL:      TCM.DLL V1.14.4.0
  
 <h2>Project:</h2>
-E:\MCR30\STM32F207Driver.uvprojx
-Project File Date:  09/04/2018
+E:\ER00720190312\ER007\STM32F207Driver.uvprojx
+Project File Date:  04/18/2019
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 1 (build 61)', folder: 'D:\keil5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.05 update 1 (build 106)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'MCR-007'
+linking...
+Program Size: Code=285316 RO-data=282008 RW-data=1772 ZI-data=156404  
+FromELF: creating hex file...
 After Build - User command #1: CopyHex_Flash.bat
-E:\MCR30>copy obj\obj_ECR-99\ECR-99.hex obj\ECR-99.hex 
+E:\ER00720190312\ER007>copy obj\obj_ECR-99\ECR-99.hex obj\ECR-99.hex 
 系统找不到指定的路径。
-E:\MCR30>copy obj\obj_ECR-100F\ECR-100F.hex obj\ECR-100F.hex 
+E:\ER00720190312\ER007>copy obj\obj_ECR-100F\ECR-100F.hex obj\ECR-100F.hex 
 系统找不到指定的路径。
-E:\MCR30>copy obj\obj_ECR-100S\ECR-100S.hex obj\ECR-100S.hex 
+E:\ER00720190312\ER007>copy obj\obj_ECR-100S\ECR-100S.hex obj\ECR-100S.hex 
 系统找不到指定的路径。
-E:\MCR30>copy obj\obj_MCR30\MCR30.hex obj\MCR30.hex 
+E:\ER00720190312\ER007>copy obj\obj_MCR30\MCR30.hex obj\MCR30.hex 
 已复制         1 个文件。
-E:\MCR30>copy obj\obj_MCR007\MCR007.hex obj\MCR007.hex 
+E:\ER00720190312\ER007>copy obj\obj_MCR007\MCR007.hex obj\MCR007.hex 
 已复制         1 个文件。
+After Build - User command #2: fromelf --bin --output .\obj\obj_MCR007\MCR007.bin .\obj\obj_MCR007\MCR007.axf
 ".\obj\obj_MCR007\MCR007.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
-                http://www.keil.com/pack/ARM.CMSIS.4.5.0.pack
-                ARM::CMSIS:CORE:4.3.0
+                http://www.keil.com/pack/ARM.CMSIS.4.2.0.pack
+                ARM.CMSIS.4.2.0
                 CMSIS (Cortex Microcontroller Software Interface Standard)
-   * Component: CORE Version: 4.3.0
+   * Component: CORE Version: 3.40.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F2xx_DFP.2.9.0.pack
+                Keil.STM32F2xx_DFP.2.9.0
+                STMicroelectronics STM32F2 Series Device Support, Drivers and Examples
 
 <h2>Collection of Component include folders:</h2>
-  E:\MCR30\RTE
-  D:\keil5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include
-  D:\keil5\ARM\PACK\Keil\STM32F2xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F2xx\Include
+  .\RTE\_MCR-007
+  D:\Keil_v5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include
+  D:\Keil_v5\ARM\PACK\Keil\STM32F2xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F2xx\Include
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:CORE:4.3.0
-Build Time Elapsed:  00:00:08
+   * Component: ARM::CMSIS:CORE:3.40.0
+      Source file:   CMSIS\UserCodeTemplates\ARM\ITM_Retarget.c
+Build Time Elapsed:  00:00:07
 </pre>
 </body>
 </html>

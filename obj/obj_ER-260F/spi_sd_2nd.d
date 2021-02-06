@@ -2,7 +2,7 @@
 .\obj\obj_er-260f\spi_sd_2nd.o: .\USER\inc\spi_sd.h
 .\obj\obj_er-260f\spi_sd_2nd.o: .\USER\inc\stm32f2xx.h
 .\obj\obj_er-260f\spi_sd_2nd.o: .\Libraries\CMSIS\Include\core_cm3.h
-.\obj\obj_er-260f\spi_sd_2nd.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\obj_er-260f\spi_sd_2nd.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\obj_er-260f\spi_sd_2nd.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\obj\obj_er-260f\spi_sd_2nd.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\obj\obj_er-260f\spi_sd_2nd.o: .\Libraries\CMSIS\system_stm32f2xx.h
@@ -34,4 +34,4 @@
 .\obj\obj_er-260f\spi_sd_2nd.o: .\Libraries\STM32F2xx_StdPeriph_Driver\inc\stm32f2xx_usart.h
 .\obj\obj_er-260f\spi_sd_2nd.o: .\Libraries\STM32F2xx_StdPeriph_Driver\inc\stm32f2xx_wwdg.h
 .\obj\obj_er-260f\spi_sd_2nd.o: .\Libraries\STM32F2xx_StdPeriph_Driver\inc\misc.h
-.\obj\obj_er-260f\spi_sd_2nd.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\obj_er-260f\spi_sd_2nd.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

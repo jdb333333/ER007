@@ -3,7 +3,7 @@
 .\obj\obj_mcr007\usb_hcd.o: .\Utilities\USB_APP\inc\usb_conf.h
 .\obj\obj_mcr007\usb_hcd.o: .\USER\inc\stm32f2xx.h
 .\obj\obj_mcr007\usb_hcd.o: .\Libraries\CMSIS\Include\core_cm3.h
-.\obj\obj_mcr007\usb_hcd.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\obj_mcr007\usb_hcd.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\obj_mcr007\usb_hcd.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\obj\obj_mcr007\usb_hcd.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\obj\obj_mcr007\usb_hcd.o: .\Libraries\CMSIS\system_stm32f2xx.h

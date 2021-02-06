@@ -205,7 +205,8 @@
 ".\obj\obj_mcr007\timer.o"
 ".\obj\obj_mcr007\qr_encode.o"
 ".\obj\obj_mcr007\ejournal.o"
+".\obj\obj_mcr007\sim800.o"
 --library_type=microlib --strict --scatter ".\obj\obj_MCR007\MCR007.sct"
---summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\obj\MCR007.map" -o .\obj\obj_MCR007\MCR007.axf

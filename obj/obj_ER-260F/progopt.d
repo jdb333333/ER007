@@ -1,13 +1,13 @@
 .\obj\obj_er-260f\progopt.o: EOSCLCD\Progopt.c
 .\obj\obj_er-260f\progopt.o: EOSCLCD\king.h
-.\obj\obj_er-260f\progopt.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
-.\obj\obj_er-260f\progopt.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
-.\obj\obj_er-260f\progopt.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\obj\obj_er-260f\progopt.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\obj_er-260f\progopt.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\obj_er-260f\progopt.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\obj_er-260f\progopt.o: EOSCLCD\debug.h
 .\obj\obj_er-260f\progopt.o: .\USER\inc\include.h
 .\obj\obj_er-260f\progopt.o: .\USER\inc\stm32f2xx.h
 .\obj\obj_er-260f\progopt.o: .\Libraries\CMSIS\Include\core_cm3.h
-.\obj\obj_er-260f\progopt.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\obj_er-260f\progopt.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\obj_er-260f\progopt.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\obj\obj_er-260f\progopt.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\obj\obj_er-260f\progopt.o: .\Libraries\CMSIS\system_stm32f2xx.h

@@ -1,0 +1,358 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.25.3.0
+Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: jiang dongbo, JDK, LIC=EPPDY-I1YKW-LU44M-X67U8-D6AJ3-F9QM9
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.14.0.0
+Toolchain Path:  D:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.05 update 1 (build 106)
+Assembler:       Armasm.exe V5.05 update 1 (build 106)
+Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
+Library Manager: ArmAr.exe V5.05 update 1 (build 106)
+Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
+CPU DLL:         SARMCM3.DLL V5.14.0.0
+Dialog DLL:      DCM.DLL V1.13.1.0
+Target DLL:      Segger\JL2CM3.dll V2.99.13.0
+Dialog DLL:      TCM.DLL V1.14.4.0
+ 
+<h2>Project:</h2>
+E:\ER00720190312\ER007\STM32F207Driver.uvprojx
+Project File Date:  04/18/2019
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.05 update 1 (build 106)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'MCR-007'
+compiling Gprs.c...
+.\Utilities\Third_Party\fat_fs\inc\ff.h(33): warning:  #47-D: incompatible redefinition of macro "true" (declared at line 30 of ".\USER\inc\TypeDef.h")
+  #define true 1
+.\Utilities\Third_Party\fat_fs\inc\ff.h(34): warning:  #47-D: incompatible redefinition of macro "false" (declared at line 26 of ".\USER\inc\TypeDef.h")
+  #define false 0
+EOSCLCD\types.h(53): warning:  #47-D: incompatible redefinition of macro "ULONG" (declared at line 37 of ".\Utilities\Third_Party\fat_fs\inc\integer.h")
+  #define ULONG 	uint32_t
+EOSCLCD\CHNDisp.h(117): warning:  #1295-D: Deprecated declaration RecallScreen - give arg types
+  extern void RecallScreen();
+.\Print\print.h(129): warning:  #47-D: incompatible redefinition of macro "PRN_STUB_Mode" (declared at line 256 of "EOSCLCD\bios.h")
+  #define PRN_STUB_Mode        BIT0    //print on stub printer
+.\Print\print.h(130): warning:  #47-D: incompatible redefinition of macro "PRN_RECEIPT_Mode" (declared at line 255 of "EOSCLCD\bios.h")
+  #define PRN_RECEIPT_Mode     BIT1    //print on receipt printer
+.\Print\print.h(131): warning:  #47-D: incompatible redefinition of macro "PRN_DBLH_Mode" (declared at line 254 of "EOSCLCD\bios.h")
+  #define PRN_DBLH_Mode        BIT2    //double high print mode for text
+.\Print\print.h(132): warning:  #47-D: incompatible redefinition of macro "PRN_DBLW_Mode" (declared at line 253 of "EOSCLCD\bios.h")
+  #define PRN_DBLW_Mode        BIT3    //double with print mode for text
+.\Print\print.h(139): warning:  #47-D: incompatible redefinition of macro "PRN_CUTRESET_Mode" (declared at line 260 of "EOSCLCD\bios.h")
+  #define PRN_CUTRESET_Mode    BIT8    //reset cutter//ccr2018-07-30 N/A
+EOSCLCD\Exth.h(756): warning:  #1295-D: Deprecated declaration GPRSConnect_TCPIP - give arg types
+  extern BYTE GPRSConnect_TCPIP(/*CONSTCHAR *pIP,CONSTCHAR *pPort*/);
+EOSCLCD\Gprs.h(69): warning:  #1295-D: Deprecated declaration GPRS_AT - give arg types
+  int GPRS_AT();//jdb2019-02-27增加判断AT命令是否可用，可用GPRS模块正常，不可用GPRS模块有问题
+EOSCLCD\Gprs.h(70): warning:  #1295-D: Deprecated declaration GPRS_ATCPIN - give arg types
+  int GPRS_ATCPIN();//jdb2019-03-11检测SIM卡状态
+EOSCLCD\Gprs.h(71): warning:  #1295-D: Deprecated declaration GPRS_ATCSTT - give arg types
+  int GPRS_ATCSTT();//jdb2019-03-11开始APN任务
+EOSCLCD\Gprs.h(72): warning:  #1295-D: Deprecated declaration GPRS_ATCIISR - give arg types
+  int GPRS_ATCIISR();//jdb2019-03-11开始建立无线连接
+EOSCLCD\Gprs.h(73): warning:  #1295-D: Deprecated declaration GPRS_ATCIFSR - give arg types
+  int GPRS_ATCIFSR();//jdb2019-03-11获取IP地址
+EOSCLCD\Gprs.h(75): warning:  #1295-D: Deprecated declaration GPRS_APN_CSD - give arg types
+  BYTE GPRS_APN_CSD();//jdb2019-02-27开始APN任务，建立无线链路
+EOSCLCD\Gprs.h(76): warning:  #1295-D: Deprecated declaration GPRS_TCP_CONNECT - give arg types
+  BYTE GPRS_TCP_CONNECT();//jdb2019-02-27连接服务器
+EOSCLCD\Gprs.h(77): warning:  #1295-D: Deprecated declaration GPRS_TCP_CLOSE - give arg types
+  BYTE GPRS_TCP_CLOSE();//jdb2019-02-27关闭TCP连接
+EOSCLCD\Gprs.h(78): warning:  #1295-D: Deprecated declaration GPRS_TCP_STATUS - give arg types
+  BYTE GPRS_TCP_STATUS();//jdb2019-02-27检测TCP连接状态
+EOSCLCD\Gprs.h(79): warning:  #1295-D: Deprecated declaration GPRS_RESET_DELAY - give arg types
+  void GPRS_RESET_DELAY();//jdb2019-02-27重置TCP空闲连接超时时间
+EOSCLCD\MessageEN_P32.h(231): warning:  #47-D: incompatible redefinition of macro "EditN25" (declared at line 556 of "EOSCLCD\MessageEN_260.h")
+  #define EditN25                   "PORT           TYPE    PROTOCOL"  // "串口名称    通信类别   通信协议"
+EOSCLCD\Gprs.c(96): warning:  #111-D: statement is unreachable
+  	if (gprsOK == false)
+EOSCLCD\Gprs.c(106): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  					j=GPRSReadAString(readGPRS,sizeof(readGPRS),100);
+EOSCLCD\Gprs.c(108): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  						GPRSDataDelRD(readGPRS, strlen(readGPRS));
+EOSCLCD\Gprs.c(129): warning:  #167-D: argument of type "const char *" is incompatible with parameter of type "const uint8_t *"
+  						DispSt1(GPRSMess[G_WAITFOR].str);
+EOSCLCD\Gprs.c(131): warning:  #223-D: function "SIM800_PowerOn" declared implicitly
+  						SIM800_PowerOn();
+EOSCLCD\Gprs.c(157): warning:  #167-D: argument of type "const char *" is incompatible with parameter of type "const uint8_t *"
+  						DispSt1(GPRSMess[G_GPRSNOTOK].str);
+EOSCLCD\Gprs.c(164): warning:  #167-D: argument of type "const char *" is incompatible with parameter of type "const uint8_t *"
+  					DispSt1(GPRSMess[G_GPRSOK].str);
+EOSCLCD\Gprs.c(85): warning:  #177-D: variable "rdyPOS" was declared but never referenced
+  	static int rdyPOS=-1;
+EOSCLCD\Gprs.c(377): warning:  #940-D: missing return statement at end of non-void function "GPRSDecodeECRRecord"
+  }
+EOSCLCD\Gprs.c(323): warning:  #177-D: variable "i" was declared but never referenced
+  	int i;
+EOSCLCD\Gprs.c(458): warning:  #177-D: variable "retry" was declared but never referenced
+  	short retry,j;
+EOSCLCD\Gprs.c(515): warning:  #177-D: variable "sEnd" was declared but never referenced
+  	BYTE sEnd=0;
+EOSCLCD\Gprs.c(616): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  		j=GPRSReadAString(readGPRS,sizeof(readGPRS),100);
+EOSCLCD\Gprs.c(601): warning:  #550-D: variable "j" was set but never used
+  	short j;
+EOSCLCD\Gprs.c(652): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  		j=GPRSReadAString(readGPRS,sizeof(readGPRS),100);
+EOSCLCD\Gprs.c(637): warning:  #550-D: variable "j" was set but never used
+  	short j;
+EOSCLCD\Gprs.c(685): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  				j=GPRSReadAString(readGPRS,sizeof(readGPRS),SECONDS(10));
+EOSCLCD\Gprs.c(672): warning:  #177-D: variable "i" was declared but never referenced
+  	short i,j;
+EOSCLCD\Gprs.c(672): warning:  #550-D: variable "j" was set but never used
+  	short i,j;
+EOSCLCD\Gprs.c(730): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  		j=GPRSReadAString(readGPRS,sizeof(readGPRS),100);
+EOSCLCD\Gprs.c(712): warning:  #550-D: variable "j" was set but never used
+  	short j;
+EOSCLCD\Gprs.c(769): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  		j=GPRSReadAString(readGPRS,sizeof(readGPRS),100);
+EOSCLCD\Gprs.c(751): warning:  #550-D: variable "j" was set but never used
+  	short j;
+EOSCLCD\Gprs.c(806): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  		j=GPRSReadAString(readGPRS,sizeof(readGPRS),100);
+EOSCLCD\Gprs.c(788): warning:  #550-D: variable "j" was set but never used
+  	short j;
+EOSCLCD\Gprs.c(822): warning:  #177-D: variable "readGPRS" was declared but never referenced
+  	char readGPRS[32];
+EOSCLCD\Gprs.c(823): warning:  #177-D: variable "apnOK" was declared but never referenced
+  	static BYTE apnOK=false, csdOK = false, ifsOK = false;
+EOSCLCD\Gprs.c(823): warning:  #177-D: variable "csdOK" was declared but never referenced
+  	static BYTE apnOK=false, csdOK = false, ifsOK = false;
+EOSCLCD\Gprs.c(823): warning:  #177-D: variable "ifsOK" was declared but never referenced
+  	static BYTE apnOK=false, csdOK = false, ifsOK = false;
+EOSCLCD\Gprs.c(824): warning:  #177-D: variable "checkapn" was declared but never referenced
+  	static BYTE checkapn = false;//是否已经检测过APN
+EOSCLCD\Gprs.c(825): warning:  #177-D: variable "checkcsd" was declared but never referenced
+  	static BYTE checkcsd = false;//是否已经检测过SCD
+EOSCLCD\Gprs.c(826): warning:  #177-D: variable "checkifs" was declared but never referenced
+  	static BYTE checkifs = false;//是否已经检测过IFS
+EOSCLCD\Gprs.c(828): warning:  #177-D: variable "i" was declared but never referenced
+  	short i,j;
+EOSCLCD\Gprs.c(828): warning:  #177-D: variable "j" was declared but never referenced
+  	short i,j;
+EOSCLCD\Gprs.c(1039): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  	j=GPRSReadAString(readGPRS,sizeof(readGPRS),SECONDS(1));
+EOSCLCD\Gprs.c(1033): warning:  #177-D: variable "i" was declared but never referenced
+  	short i, j;
+EOSCLCD\Gprs.c(1033): warning:  #550-D: variable "j" was set but never used
+  	short i, j;
+EOSCLCD\Gprs.c(1091): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  		strcpy(PCBuffer,ATIPOPEN);
+EOSCLCD\Gprs.c(1093): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *"
+  		NumToIP(PCBuffer+len,ApplVar.IP.ServerIP);  //get the ServerIP..
+EOSCLCD\Gprs.c(1094): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  		len = strlen(PCBuffer);
+EOSCLCD\Gprs.c(1098): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *"
+  		len += WORDtoASCL(PCBuffer+len,ApplVar.IP.ServerPort);//get the serverPort..
+EOSCLCD\Gprs.c(1105): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  		GPRSSendAString(PCBuffer,strlen(PCBuffer));
+EOSCLCD\Gprs.c(1105): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  		GPRSSendAString(PCBuffer,strlen(PCBuffer));
+EOSCLCD\Gprs.c(1111): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  		j=GPRSReadAString(readGPRS,sizeof(readGPRS),100);
+EOSCLCD\Gprs.c(1073): warning:  #550-D: variable "j" was set but never used
+  	short j, len;
+EOSCLCD\Gprs.c(1219): warning:  #111-D: statement is unreachable
+  	return connectOK;
+EOSCLCD\Gprs.c(1127): warning:  #177-D: variable "readGPRS" was declared but never referenced
+  	char readGPRS[32];
+EOSCLCD\Gprs.c(1128): warning:  #177-D: variable "AT_TCPCONNET" was declared but never referenced
+  	char AT_TCPCONNET[64] = {0};
+EOSCLCD\Gprs.c(1129): warning:  #177-D: variable "i" was declared but never referenced
+  	short i, j;
+EOSCLCD\Gprs.c(1129): warning:  #177-D: variable "j" was declared but never referenced
+  	short i, j;
+EOSCLCD\Gprs.c(1267): warning:  #940-D: missing return statement at end of non-void function "GPRSSend_ATE0"
+  }
+EOSCLCD\Gprs.c(1372): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  	strcpy(PCBuffer,ATIPOPEN);
+EOSCLCD\Gprs.c(1374): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *"
+  	NumToIP(PCBuffer+len,ApplVar.IP.ServerIP);  //get the ServerIP..
+EOSCLCD\Gprs.c(1375): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  	len = strlen(PCBuffer);
+EOSCLCD\Gprs.c(1379): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *"
+  	len += WORDtoASCL(PCBuffer+len,ApplVar.IP.ServerPort);//get the serverPort..
+EOSCLCD\Gprs.c(1386): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  	GPRSSendAString(PCBuffer,strlen(PCBuffer));
+EOSCLCD\Gprs.c(1386): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  	GPRSSendAString(PCBuffer,strlen(PCBuffer));
+EOSCLCD\Gprs.c(1390): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  		j=GPRSReadAString(readGPRS,sizeof(readGPRS),SECONDS(10));
+EOSCLCD\Gprs.c(1368): warning:  #177-D: variable "AT_TCPCONNET" was declared but never referenced
+  	char AT_TCPCONNET[64] = {0};
+EOSCLCD\Gprs.c(1369): warning:  #550-D: variable "j" was set but never used
+  	short len, i, j;
+EOSCLCD\Gprs.c(1825): warning:  #177-D: variable "readGPRS" was declared but never referenced
+  	char readGPRS[16];
+EOSCLCD\Gprs.c(1982): warning:  #177-D: variable "readGPRS" was declared but never referenced
+  	char readGPRS[32];
+EOSCLCD\Gprs.c(1983): warning:  #177-D: variable "readInt" was declared but never referenced
+  	int readInt[3];
+EOSCLCD\Gprs.c(1984): warning:  #177-D: variable "i" was declared but never referenced
+  	int i,l,reTry,mul;
+EOSCLCD\Gprs.c(1984): warning:  #177-D: variable "l" was declared but never referenced
+  	int i,l,reTry,mul;
+EOSCLCD\Gprs.c(1984): warning:  #177-D: variable "reTry" was declared but never referenced
+  	int i,l,reTry,mul;
+EOSCLCD\Gprs.c(1984): warning:  #177-D: variable "mul" was declared but never referenced
+  	int i,l,reTry,mul;
+EOSCLCD\Gprs.c(2114): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  				if(strstr(str, "SEND OK")){
+EOSCLCD\Gprs.c(2097): warning:  #177-D: variable "sEnd" was declared but never referenced
+  	BYTE sEnd=0;
+EOSCLCD\Gprs.c(2133): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  		j=GPRSReadAString(readGPRS,sizeof(readGPRS),SECONDS(10));
+EOSCLCD\Gprs.c(2134): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  		GPRSDataDelRD(readGPRS, j);
+EOSCLCD\Gprs.c(2143): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  			if(GPRS_WaitSendOk(readGPRS,sizeof(readGPRS),SECONDS(5))){
+EOSCLCD\Gprs.c(2314): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  	j = GPRSReadAString(strOK,sizeof(strOK),SECONDS(10));
+EOSCLCD\Gprs.c(2310): warning:  #177-D: variable "i" was declared but never referenced
+  	short i,j;
+EOSCLCD\Gprs.c(2311): warning:  #177-D: variable "sEnd" was declared but never referenced
+  	BYTE sEnd=0;
+EOSCLCD\Gprs.c(2348): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  	j = GPRSReadAString(strOK,sizeof(strOK),SECONDS(10));
+EOSCLCD\Gprs.c(2344): warning:  #177-D: variable "i" was declared but never referenced
+  	short i,j;
+EOSCLCD\Gprs.c(2345): warning:  #177-D: variable "sEnd" was declared but never referenced
+  	BYTE sEnd=0;
+EOSCLCD\Gprs.c(2491): warning:  #167-D: argument of type "const char *" is incompatible with parameter of type "const uint8_t *"
+  			DispStrXY(GPRSMess[G_SHUJUFASONGZHONG].str,0,1);
+EOSCLCD\Gprs.c(2493): warning:  #167-D: argument of type "const char *" is incompatible with parameter of type "const uint8_t *"
+  			DispSt1(GPRSMess[G_SHUJUFASONGZHONG].str);//RG-DISPLAY
+EOSCLCD\Gprs.c(2531): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  				strcat(INFO_ALL, INFO_1);
+EOSCLCD\Gprs.c(2532): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  				sprintf(INFO_ALL + strlen(INFO_ALL), "%d-%d", ShopID, CashID);
+EOSCLCD\Gprs.c(2532): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  				sprintf(INFO_ALL + strlen(INFO_ALL), "%d-%d", ShopID, CashID);
+EOSCLCD\Gprs.c(2533): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  				strcat(INFO_ALL, INFO_2);
+EOSCLCD\Gprs.c(2534): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  				sprintf(INFO_ALL + strlen(INFO_ALL), "%d", logSize);
+EOSCLCD\Gprs.c(2534): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  				sprintf(INFO_ALL + strlen(INFO_ALL), "%d", logSize);
+EOSCLCD\Gprs.c(2535): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  				strcat(INFO_ALL, INFO_3);
+EOSCLCD\Gprs.c(2536): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  				sprintf(INFO_ALL + strlen(INFO_ALL), "20%02x-%02x-%02x %02x:%02x:%02x",
+EOSCLCD\Gprs.c(2536): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  				sprintf(INFO_ALL + strlen(INFO_ALL), "20%02x-%02x-%02x %02x:%02x:%02x",
+EOSCLCD\Gprs.c(2538): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  				strcat(INFO_ALL, INFO_4);
+EOSCLCD\Gprs.c(2540): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  				sprintf(INFO_ALL + strlen(INFO_ALL), "0x%02x", CRCSUM & 0xff);
+EOSCLCD\Gprs.c(2540): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  				sprintf(INFO_ALL + strlen(INFO_ALL), "0x%02x", CRCSUM & 0xff);
+EOSCLCD\Gprs.c(2541): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  				strcat(INFO_ALL, INFO_5);
+EOSCLCD\Gprs.c(2542): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  				if(!GPRSSendECRData(INFO_ALL,strlen(INFO_ALL)))
+EOSCLCD\Gprs.c(2555): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  				strcat(DATA_BUF, CONTENT_1);
+EOSCLCD\Gprs.c(2556): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  				memcpy(DATA_BUF + strlen(DATA_BUF), PCBuffer, logSize);
+EOSCLCD\Gprs.c(2557): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  				strcat(DATA_BUF, CONTENT_2);
+EOSCLCD\Gprs.c(2561): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+  						!GPRSSendECRData(DATA_BUF,strlen(DATA_BUF))//发送流水数据
+EOSCLCD\Gprs.c(2469): warning:  #177-D: variable "i" was declared but never referenced
+  	short i,size;
+EOSCLCD\Gprs.c(2470): warning:  #177-D: variable "sendCount" was declared but never referenced
+  	ULONG sendCount=0;//发送计数器
+EOSCLCD\Gprs.c(2471): warning:  #177-D: variable "logReadCopyNext" was declared but never referenced
+  	static ULONG logReadCopyNext=0;//下一条即将要读取的流水数据
+EOSCLCD\Gprs.c(2473): warning:  #177-D: variable "OK_Send" was declared but never referenced
+  	BYTE OK_Send;
+EOSCLCD\Gprs.c(2475): warning:  #177-D: variable "sendFlag" was declared but never referenced
+  	int  sendFlag;//发送计数器
+EOSCLCD\Gprs.c(2476): warning:  #177-D: variable "sDate" was declared but never referenced
+  	struct TimeDate sDate;
+EOSCLCD\Gprs.c(2876): warning:  #177-D: variable "saveNumber" was declared but never referenced
+  	WORD saveNumber;
+EOSCLCD\Gprs.c(3088): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "const uint8_t *"
+  				DispStrXY(SysBuf,0,1);
+EOSCLCD\Gprs.c(3098): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  					if (GPRSSendECRData(getIPDATA,6+2+sizeof(ApplVar.IP.ECR_ID)))//发送下载请求.
+EOSCLCD\Gprs.c(3129): warning:  #167-D: argument of type "const char *" is incompatible with parameter of type "const uint8_t *"
+  												DispStrXY(GPRSMess[G_xDATATYPE].str,0,0xff);//数据错
+EOSCLCD\Gprs.c(3135): warning:  #167-D: argument of type "const char *" is incompatible with parameter of type "const uint8_t *"
+  											DispStrXY(GPRSMess[G_xDATATYPE].str,0,0xff);//数据错
+EOSCLCD\Gprs.c(3204): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "const uint8_t *"
+  														DispStrXY(SysBuf,0,0xff);//显示已收到的数据数目
+EOSCLCD\Gprs.c(3209): warning:  #167-D: argument of type "const char *" is incompatible with parameter of type "const uint8_t *"
+  														DispStrXY(GPRSMess[G_xDATATYPE].str,0,0xff);//数据错
+EOSCLCD\Gprs.c(3262): warning:  #167-D: argument of type "const char *" is incompatible with parameter of type "const uint8_t *"
+  							DispStrXY(GPRSMess[G_JIESHOUSHIBAI].str,0,0xff);//超时错
+EOSCLCD\Gprs.c(3268): warning:  #167-D: argument of type "const char *" is incompatible with parameter of type "const uint8_t *"
+  						DispStrXY(GPRSMess[G_FASONGSHIBAI].str,0,0xff);
+EOSCLCD\Gprs.c(3282): warning:  #167-D: argument of type "const char *" is incompatible with parameter of type "const uint8_t *"
+  		DispSt1(GPRSMess[G_WAITFOR].str);//RG-DISPLAY
+EOSCLCD\Gprs.c(3285): warning:  #167-D: argument of type "const char *" is incompatible with parameter of type "const uint8_t *"
+  	PRESS_ANY_KEY(SCREENLN-2);
+EOSCLCD\Gprs.c(3063): warning:  #177-D: variable "FuncNum" was declared but never referenced
+  	WORD ECRFunc,FuncNum;
+EOSCLCD\Gprs.c(3702): warning:  #167-D: argument of type "const char *" is incompatible with parameter of type "const uint8_t *"
+  								DispSt1C(Msg[WJKJYJIE].str);
+EOSCLCD\Gprs.c(3414): warning:  #177-D: variable "err_state" was declared but never referenced
+  	BYTE err_state=true;
+EOSCLCD\Gprs.c(4514): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  				if ((j=GPRSReadAString(readGPRS,sizeof(readGPRS),SECONDS(10)))>=0)
+EOSCLCD\Gprs.c(68): warning:  #550-D: variable "GPRS_CSE_Delay" was set but never used
+  static unsigned long GPRS_CSE_Delay = 0;
+EOSCLCD\Gprs.c: 141 warnings, 0 errors
+linking...
+Program Size: Code=285316 RO-data=282008 RW-data=1772 ZI-data=156404  
+FromELF: creating hex file...
+After Build - User command #1: CopyHex_Flash.bat
+E:\ER00720190312\ER007>copy obj\obj_ECR-99\ECR-99.hex obj\ECR-99.hex 
+系统找不到指定的路径。
+E:\ER00720190312\ER007>copy obj\obj_ECR-100F\ECR-100F.hex obj\ECR-100F.hex 
+系统找不到指定的路径。
+E:\ER00720190312\ER007>copy obj\obj_ECR-100S\ECR-100S.hex obj\ECR-100S.hex 
+系统找不到指定的路径。
+E:\ER00720190312\ER007>copy obj\obj_MCR30\MCR30.hex obj\MCR30.hex 
+已复制         1 个文件。
+E:\ER00720190312\ER007>copy obj\obj_MCR007\MCR007.hex obj\MCR007.hex 
+已复制         1 个文件。
+After Build - User command #2: fromelf --bin --output .\obj\obj_MCR007\MCR007.bin .\obj\obj_MCR007\MCR007.axf
+".\obj\obj_MCR007\MCR007.axf": Error: Q0122E: Could not open file '.\obj\obj_MCR007\MCR007.axf': No such file or directory
+Finished: 0 information, 0 warning and 1 error messages.
+".\obj\obj_MCR007\jdbMCR007.axf" - 0 Error(s), 141 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.4.2.0.pack
+                ARM.CMSIS.4.2.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 3.40.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F2xx_DFP.2.9.0.pack
+                Keil.STM32F2xx_DFP.2.9.0
+                STMicroelectronics STM32F2 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_MCR-007
+  D:\Keil_v5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include
+  D:\Keil_v5\ARM\PACK\Keil\STM32F2xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F2xx\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:3.40.0
+      Source file:   CMSIS\UserCodeTemplates\ARM\ITM_Retarget.c
+Build Time Elapsed:  00:00:11
+</pre>
+</body>
+</html>

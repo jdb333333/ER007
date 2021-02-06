@@ -456,9 +456,13 @@ void SavePrintStr(BYTE flag, CONSTCHAR *str)
 	int i, j;
 	int datalen;
 	BYTE oldchar, recount;
-	BYTE databuf[64];
+	BYTE databuf[64];//jdb2019-03-08 
 
 	datalen = strlen(str);
+	if(datalen > sizeof(databuf)){
+		return;
+	}
+	
 	memcpy(databuf, str, datalen);
 
 	oldchar = 0x0;

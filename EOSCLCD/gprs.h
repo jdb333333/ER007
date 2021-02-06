@@ -27,7 +27,8 @@
 #if(defined(DEBUGBYPC))
 #define GPRSPORT COMPUTER_1
 #else
-#define GPRSPORT 2   //GPRSPORT,0,1,2
+//#define GPRSPORT 2   //GPRSPORT,0,1,2
+#define GPRSPORT 2   //jdb2019-02-27
 #endif
 
 extern void mDrawGPRS(BYTE ColNum, BYTE LinNum,BYTE force);
@@ -63,6 +64,22 @@ void GPRSSendECR_HeartBeat(BYTE force);//ccr2015-08-03
 BYTE GPRS_ProcessRecord(char cmd,BYTE *srvData,BYTE psize);//ccr2016-08-19
 BYTE GPRSWaitForOK(ULONG sWaitFor);
 void GPRS_DrawSignal(void);
+
+short GPRSDataDelRD(BYTE *str, short size);//jdb2019-02-27去掉回车和换行符
+int GPRS_AT();//jdb2019-02-27增加判断AT命令是否可用，可用GPRS模块正常，不可用GPRS模块有问题
+int GPRS_ATCPIN();//jdb2019-03-11检测SIM卡状态
+int GPRS_ATCSTT();//jdb2019-03-11开始APN任务
+int GPRS_ATCIISR();//jdb2019-03-11开始建立无线连接
+int GPRS_ATCIFSR();//jdb2019-03-11获取IP地址
+
+BYTE GPRS_APN_CSD();//jdb2019-02-27开始APN任务，建立无线链路
+BYTE GPRS_TCP_CONNECT();//jdb2019-02-27连接服务器
+BYTE GPRS_TCP_CLOSE();//jdb2019-02-27关闭TCP连接
+BYTE GPRS_TCP_STATUS();//jdb2019-02-27检测TCP连接状态
+void GPRS_RESET_DELAY();//jdb2019-02-27重置TCP空闲连接超时时间
+
+
+void GPRSDealy(ULONG sWaitFor);//jdb2019-02-27延时
 
 #define cmdUPDATE       'U'     //为更新数据请求
 #define cmdDOWNLOAD     'D'     //为下载数据请求

@@ -1,5 +1,5 @@
 .\obj\obj_mcr007\usbd_usr.o: Utilities\USB_APP\usbd_usr.c
-.\obj\obj_mcr007\usbd_usr.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\obj_mcr007\usbd_usr.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\obj\obj_mcr007\usbd_usr.o: .\Libraries\STM32_USB_Device_Library\Core\inc\usbd_usr.h
 .\obj\obj_mcr007\usbd_usr.o: .\Libraries\STM32_USB_Device_Library\Core\inc\usbd_core.h
 .\obj\obj_mcr007\usbd_usr.o: .\Libraries\STM32_USB_OTG_Driver\inc\usb_dcd.h
@@ -7,7 +7,7 @@
 .\obj\obj_mcr007\usbd_usr.o: .\Utilities\USB_APP\inc\usb_conf.h
 .\obj\obj_mcr007\usbd_usr.o: .\USER\inc\stm32f2xx.h
 .\obj\obj_mcr007\usbd_usr.o: .\Libraries\CMSIS\Include\core_cm3.h
-.\obj\obj_mcr007\usbd_usr.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\obj_mcr007\usbd_usr.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\obj_mcr007\usbd_usr.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\obj\obj_mcr007\usbd_usr.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\obj\obj_mcr007\usbd_usr.o: .\Libraries\CMSIS\system_stm32f2xx.h
@@ -47,4 +47,4 @@
 .\obj\obj_mcr007\usbd_usr.o: .\Libraries\STM32_USB_Device_Library\Core\inc\usbd_ioreq.h
 .\obj\obj_mcr007\usbd_usr.o: .\Utilities\USB_APP\inc\usbd_desc.h
 .\obj\obj_mcr007\usbd_usr.o: .\USER\inc\monitor.h
-.\obj\obj_mcr007\usbd_usr.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\obj_mcr007\usbd_usr.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

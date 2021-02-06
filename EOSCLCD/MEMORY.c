@@ -17,9 +17,15 @@ struct  TECRVIPFix   ECRVIPFix[ECRVIPMAX];
 
 #if (DD_ECRVIP==1)
 //.............ECRVIP数据存储区....................
+#if defined(CASE_RAMVIP)//jdb2019-03-07 ECRVIP放SRAM区
+struct  TECRVIPVar   ECRVIPVar1[ECRVIPMAX/2] __attribute__((at(FLASH_ECRVIPVAR1_ADDR)));//[ECRVIPMAX/2]
+struct  TECRVIPVar   ECRVIPVar2[ECRVIPMAX/2] __attribute__((at(FLASH_ECRVIPVAR2_ADDR)));//[ECRVIPMAX/2]
+struct  TECRVIPFix   ECRVIPFix[ECRVIPMAX]  __attribute__((at(FLASH_ECRVIPFIX_ADDR)));// [ECRVIPMAX]
+#else
 struct  TECRVIPVar   ECRVIPVar1[ECRVIPMAX/2] __attribute__((at(FLASH_BASEADDR+FLASH_ECRVIPVAR1_ADDR)));//[ECRVIPMAX/2]
 struct  TECRVIPVar   ECRVIPVar2[ECRVIPMAX/2] __attribute__((at(FLASH_BASEADDR+FLASH_ECRVIPVAR2_ADDR)));//[ECRVIPMAX/2]
 struct  TECRVIPFix   ECRVIPFix[ECRVIPMAX]  __attribute__((at(FLASH_BASEADDR+FLASH_ECRVIPFIX_ADDR)));// [ECRVIPMAX]
+#endif
 #endif
 
 #if ApplVarInSRAM

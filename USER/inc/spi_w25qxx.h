@@ -23,15 +23,36 @@ typedef struct
 	uint16_t PageSize;		/* 页面大小 */
 }SFLASH_T;
 
+#define SFLASH_PAGESIZE     		0x100		//W25Q16DV page大小256B
+#define SFLASH_SECTORSIZE     	0x1000	//W25Q16DV sector大小4KB
+#define SFLASH_SECTOR_MAXNUM    0x200		//W25Q16DV sector数量512
+#define SFLASH_BLOCKSIZE     		0x10000	//W25Q16DV Block大小64KB
+#define SFLASH_BLOCK_MAXNUM    	0x20		//W25Q16DV Block数量32
+#define SFLASH_SIZE							0x200000//W25Q16DV 容量2MB
+
+#define SFLASH_TIMEOUT  				120000000	//超时
+
 void sf_Init(void);
 uint32_t sf_ReadID(void);
-void sf_EraseChip(void);
-void sf_EraseSector(uint32_t _uiSectorAddr);
+uint8_t sf_EraseChip(void);
+uint8_t sf_EraseSector(uint32_t _uiSectorAddr);
+uint8_t sf_EraseBlock(uint32_t _uiBlockAddr);
 void sf_PageWrite(uint8_t * _pBuf, uint32_t _uiWriteAddr, uint16_t _usSize);
 uint8_t sf_WriteBuffer(uint8_t* _pBuf, uint32_t _uiWriteAddr, uint16_t _usWriteSize);
 void sf_ReadBuffer(uint8_t * _pBuf, uint32_t _uiReadAddr, uint32_t _uiSize);
 
 extern SFLASH_T g_tSF;
+
+//>>>>>>>>>>>>>>>>>>ouhs 20190304 
+uint8_t bFlashMSectorErase(uint32_t ucSector, uint32_t ucNumSectors);
+uint8_t bFlashMBlockErase(uint32_t ucBlock, uint32_t ucNumBlocks);
+uint8_t bFlashWrite( uint32_t ulOff, uint8_t ucVal );
+uint8_t bFlashProgram( uint32_t ulOff, uint32_t NumBytes, uint8_t *Array );
+
+uint8_t bFlashReadBuffer(uint8_t* pBuffer, uint32_t ReadAddr, uint32_t NumBytesToRead);
+uint8_t FlashReadByte(uint32_t Addr);
+
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 #endif
 

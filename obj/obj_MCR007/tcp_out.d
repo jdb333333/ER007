@@ -5,7 +5,7 @@
 .\obj\obj_mcr007\tcp_out.o: .\Utilities\Third_Party\lwip_v1.3.2\src\include\lwip/arch.h
 .\obj\obj_mcr007\tcp_out.o: .\Utilities\Third_Party\lwip_v1.3.2\port\STM32F2x7\arch/cc.h
 .\obj\obj_mcr007\tcp_out.o: .\Utilities\Third_Party\lwip_v1.3.2\port\STM32F2x7\arch/cpu.h
-.\obj\obj_mcr007\tcp_out.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\obj_mcr007\tcp_out.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\obj\obj_mcr007\tcp_out.o: .\Utilities\Third_Party\lwip_v1.3.2\src\include\lwip/tcp.h
 .\obj\obj_mcr007\tcp_out.o: .\Utilities\Third_Party\lwip_v1.3.2\src\include\lwip/sys.h
 .\obj\obj_mcr007\tcp_out.o: .\Utilities\Third_Party\lwip_v1.3.2\src\include\lwip/mem.h
@@ -23,4 +23,4 @@
 .\obj\obj_mcr007\tcp_out.o: .\Utilities\Third_Party\lwip_v1.3.2\src\include\lwip/stats.h
 .\obj\obj_mcr007\tcp_out.o: .\Utilities\Third_Party\lwip_v1.3.2\src\include\lwip/snmp.h
 .\obj\obj_mcr007\tcp_out.o: .\Utilities\Third_Party\lwip_v1.3.2\src\include\lwip/udp.h
-.\obj\obj_mcr007\tcp_out.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\obj_mcr007\tcp_out.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

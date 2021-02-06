@@ -450,7 +450,7 @@ short DisplayOption()
 
     mEnCursor(ENABLE);
 
-    if (Appl_ProgLine>2 && Appl_ProgType!=SETHEAD && Appl_ProgType!=SETTRAIL && Appl_ProgType!=SETMODIF && Appl_ProgType!=SETSHEAD)
+    if (Appl_ProgLine>2 && Appl_ProgType != SETHEAD && Appl_ProgType!=SETTRAIL && Appl_ProgType!=SETMODIF && Appl_ProgType!=SETSHEAD)
         GotoXY(SCREENWD,ApplVar.sCursor.y);
 
     for (;;)
@@ -1272,6 +1272,11 @@ WORD CheckFirmKey()
             else //ccr040809
             { //不是对询问进行确认操作
                 Appl_ProgLine++;
+				#if 0
+				if(Appl_ProgLine < ApplVar.sCursor.y){//jdb2019-03-08调整显示行
+					ApplVar.sCursor.y = 0;
+				}
+				#endif
                 Appl_BitNumber = 0;
                 if (Appl_ProgLine>2)
                 {
@@ -1527,7 +1532,9 @@ BYTE CheckMode()
 #endif//<<<<<<<<<<<<<<<<<<<<<<<<<<
 
     keyno=ApplVar.KeyNo;
-    if (ApplVar.KeyNo == ApplVar.AP.FirmKeys[ID_RJFEED])
+    //if (ApplVar.KeyNo == ApplVar.AP.FirmKeys[ID_RJFEED])
+    //jdb2019-03-12进纸键只在销售模式下生效
+	if (ApplVar.CentralLock == RG && ApplVar.KeyNo == ApplVar.AP.FirmKeys[ID_RJFEED])
     {
         JFeed();
         return TRUE;

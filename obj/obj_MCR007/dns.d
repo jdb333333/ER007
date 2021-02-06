@@ -5,7 +5,7 @@
 .\obj\obj_mcr007\dns.o: .\Utilities\Third_Party\lwip_v1.3.2\src\include\lwip/arch.h
 .\obj\obj_mcr007\dns.o: .\Utilities\Third_Party\lwip_v1.3.2\port\STM32F2x7\arch/cc.h
 .\obj\obj_mcr007\dns.o: .\Utilities\Third_Party\lwip_v1.3.2\port\STM32F2x7\arch/cpu.h
-.\obj\obj_mcr007\dns.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\obj_mcr007\dns.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\obj\obj_mcr007\dns.o: .\Utilities\Third_Party\lwip_v1.3.2\src\include\lwip/udp.h
 .\obj\obj_mcr007\dns.o: .\Utilities\Third_Party\lwip_v1.3.2\src\include\lwip/pbuf.h
 .\obj\obj_mcr007\dns.o: .\Utilities\Third_Party\lwip_v1.3.2\src\include\lwip/err.h
@@ -19,7 +19,7 @@
 .\obj\obj_mcr007\dns.o: .\USER\inc\Ethernet_app.h
 .\obj\obj_mcr007\dns.o: .\USER\inc\stm32f2xx.h
 .\obj\obj_mcr007\dns.o: .\Libraries\CMSIS\Include\core_cm3.h
-.\obj\obj_mcr007\dns.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\obj_mcr007\dns.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\obj_mcr007\dns.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\obj\obj_mcr007\dns.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\obj\obj_mcr007\dns.o: .\Libraries\CMSIS\system_stm32f2xx.h
@@ -53,9 +53,9 @@
 .\obj\obj_mcr007\dns.o: .\Libraries\STM32F2xx_StdPeriph_Driver\inc\misc.h
 .\obj\obj_mcr007\dns.o: .\EOSTCPIP\inc\stm32f2x7_eth_bsp.h
 .\obj\obj_mcr007\dns.o: .\EOSTCPIP\inc\netconf.h
-.\obj\obj_mcr007\dns.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\obj_mcr007\dns.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\obj_mcr007\dns.o: .\EOSCLCD\king.h
-.\obj\obj_mcr007\dns.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\obj\obj_mcr007\dns.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\obj_mcr007\dns.o: .\EOSCLCD\debug.h
 .\obj\obj_mcr007\dns.o: .\USER\inc\include.h
 .\obj\obj_mcr007\dns.o: .\USER\inc\SysTick.h

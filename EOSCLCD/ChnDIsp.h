@@ -12,8 +12,10 @@
 #define SCREENLN	4	//Screen lines
 #define SCREENWD	16	//20050105 24	//Screen width
 #else
-#define SCREENLN	8	//Screen lines
-#define SCREENWD	21	//20050105 24	//Screen width
+//#define SCREENLN		8	//Screen lines
+#define SCREENLN	4	//jdb2019-03-08 4行显示
+//#define SCREENWD	21	//20050105 24	//Screen width
+#define SCREENWD	20	//jdb2019-03-08
 #define SCRDBLWD    11  //ccr2016-03-01倍宽时的屏幕宽度
 //#define SCRSTATDBL   1   //ccr2016-03-01状态行倍宽显示
 #endif

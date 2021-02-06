@@ -25,7 +25,44 @@ FlashPause() for timing short pauses (in micro seconds)
 *******************************************************************************/
 
 #include "Flashb.h"
+#if defined(CASE_SPI25W25Q16)//jdb2019-03-07使用SPI_W25Q16
+int bFlashMBlockErase(int ucBlock, int ucNumBlocks)
+{
+	uint8_t ret;
+	
+	ret = spi_bFlashMBlockErase(ucBlock, ucNumBlocks);
+	
+	return ret;
+}
 
+void bFlashWrite( uint32_t ulOff, uint8_t ucVal )
+{
+	spi_bFlashWrite(ulOff, ucVal);
+}
+
+int bFlashProgram( uint32_t ulOff, uint32_t NumBytes, uint8_t *Array )
+{
+	uint8_t ret;
+	
+	ret = spi_bFlashProgram(ulOff, NumBytes, Array);
+	
+	return ret;
+}
+
+uint8_t wFlashReadBuffer(uint16_t* pBuffer, uint32_t ReadAddr, uint32_t NumHalfwordToRead)
+{
+	
+}
+
+uint8_t bFlashReadBuffer(uint8_t* pBuffer, uint32_t ReadAddr, uint32_t NumBytesToRead)
+{
+	uint8_t ret;
+	
+	spi_bFlashReadBuffer(pBuffer, ReadAddr, NumBytesToRead);
+	
+	return ret;
+}
+#else
 extern uint8_t TestPrintGoingOn(void);
 
 /*******************************************************************************
@@ -104,8 +141,11 @@ Step 2: return ucVal
 *******************************************************************************/
 void bFlashWrite( uint32_t ulOff, uint8_t ucVal )
 {
+#if defined(CASE_SPI25W25Q16)//jdb2019-03-07使用SPI_W25Q16
+#else
 /* Step1, 2: Write ucVal to the byte offset in the flash and return it */
 	BASE_ADDRB[ulOff] = ucVal;
+#endif
 }
 void wFlashWrite( uint32_t ulOff, uint16_t ucVal )
 {
@@ -344,6 +384,9 @@ int bFlashBlockErase(uint8_t ucBlock[],  int ucNumBlocks)
 //从ucBlock号块开始连续擦除ucNumBlocks块
 int bFlashMBlockErase(int ucBlock, int ucNumBlocks)
 {
+#if defined(CASE_SPI25W25Q16)//jdb2019-03-07使用SPI_W25Q16
+	return FLASH_SUCCESS;
+#else
 	int ucCurBlock; /* Range Variable to track current block */
 	int iRetVal = FLASH_SUCCESS; /* Holds return value: optimistic initially! */
 
@@ -402,6 +445,7 @@ int bFlashMBlockErase(int ucBlock, int ucNumBlocks)
 		bFlashReadReset();
 	}
 	return iRetVal;
+	#endif
 }
 /*******************************************************************************
 Function: int FlashChipErase( void )
@@ -528,6 +572,9 @@ int wFlashProgramAWord(uint32_t ulOff,uint16_t sWord)
 
 int bFlashProgram( uint32_t ulOff, uint32_t NumBytes,uint8_t *ucArrayPointer )//ccr2017-11-03
 {
+#if defined(CASE_SPI25W25Q16)//jdb2019-03-07使用SPI_W25Q16
+	return FLASH_SUCCESS;
+#else
     int flasherr;
 	uint16_t sWord;
     uint8_t sByte;
@@ -602,6 +649,7 @@ int bFlashProgram( uint32_t ulOff, uint32_t NumBytes,uint8_t *ucArrayPointer )//
 			return flasherr;
 	}
 	return FLASH_SUCCESS;
+	#endif
 }
 /**
  * 写入失败时,追加写入一次
@@ -685,6 +733,9 @@ int bFlashDataToggle( void )
 
 uint8_t wFlashReadBuffer(uint16_t* pBuffer, uint32_t ReadAddr, uint32_t NumHalfwordToRead)
 {
+#if defined(CASE_SPI25W25Q16)//jdb2019-03-07使用SPI_W25Q16
+	return SUCCESS;
+#else
 	ReadAddr+=NOR_FLASH_ADDR;
 	for (; NumHalfwordToRead != 0; NumHalfwordToRead--) /* while there is data to read */
 	{
@@ -694,6 +745,7 @@ uint8_t wFlashReadBuffer(uint16_t* pBuffer, uint32_t ReadAddr, uint32_t NumHalfw
 		ReadAddr+=2;
 	}
 	return SUCCESS;
+#endif
 }
 
 /**按字节读取数据,符合字地址时,则按字读取,提高读取效率
@@ -705,6 +757,9 @@ uint8_t wFlashReadBuffer(uint16_t* pBuffer, uint32_t ReadAddr, uint32_t NumHalfw
   */
 uint8_t bFlashReadBuffer(uint8_t* pBuffer, uint32_t ReadAddr, uint32_t NumBytesToRead)
 {
+#if defined(CASE_SPI25W25Q16)//jdb2019-03-07使用SPI_W25Q16
+	return SUCCESS;
+#else
 	uint32_t sBytesToRead;
 
 	ReadAddr+=NOR_FLASH_ADDR;
@@ -732,6 +787,7 @@ uint8_t bFlashReadBuffer(uint8_t* pBuffer, uint32_t ReadAddr, uint32_t NumBytesT
 		}
 	}
 	return SUCCESS;
+#endif
 }
 
 /********************************************************************************
@@ -750,4 +806,4 @@ int bFlashAutoSize( int iTypeId )
 		return 0;
 	}
 }
-
+#endif

@@ -19,7 +19,8 @@
 #define CMD_RDSR      0x05		/* 读状态寄存器命令 */
 #define CMD_RDID      0x9F		/* 读器件ID命令 */
 #define CMD_SE        0x20		/* 擦除扇区命令 */
-#define CMD_BE        0xC7		/* 批量擦除命令 */
+#define CMD_BE        0xD8		//64KB Block Erase
+#define CMD_CE        0xC7		/* 批量擦除命令 */
 #define DUMMY_BYTE    0xA5		/* 哑命令，可以为任意值，用于读操作 */
 
 #define WIP_FLAG      0x01		/* 状态寄存器中的正在编程标志（WIP) */
@@ -30,7 +31,7 @@ void sf_ReadInfo(void);
 static uint8_t sf_SendByte(uint8_t _ucValue);
 static void sf_WriteEnable(void);
 static void sf_WriteStatus(uint8_t _ucValue);
-static void sf_WaitForWriteEnd(void);
+static uint8_t sf_WaitForWriteEnd(void);
 static uint8_t sf_NeedErase(uint8_t * _ucpOldBuf, uint8_t *_ucpNewBuf, uint16_t _uiLen);
 static uint8_t sf_CmpData(uint32_t _uiSrcAddr, uint8_t *_ucpTar, uint32_t _uiSize);
 static uint8_t sf_AutoWritePage(uint8_t *_ucpSrc, uint32_t _uiWrAddr, uint16_t _usWrLen);
@@ -98,10 +99,10 @@ void sf_Init(void)
 	// 使能SPI2
 	SPI_Cmd(SPI2, ENABLE);
 
-#if 1 //固定芯片型号
+#if 1 //固定芯片型号 W25Q16DV
 	g_tSF.ChipID = W25Q16DV_ID;
-	g_tSF.TotalSize = 2 * 1024 * 1024;	/* 总容量 = 2M */
-	g_tSF.PageSize = 256;			/* 页面大小 = 256 byte */
+	g_tSF.TotalSize = SFLASH_SIZE;		/* 总容量 = 2M */
+	g_tSF.PageSize = SFLASH_PAGESIZE;	/* 页面大小 = 256 byte */
 #else
 	sf_ReadInfo();				/* 自动识别芯片型号 */
 #endif
@@ -124,8 +125,10 @@ void sf_Init(void)
 *	返 回 值: 无
 *********************************************************************************************************
 */
-void sf_EraseSector(uint32_t _uiSectorAddr)
+uint8_t sf_EraseSector(uint32_t _uiSectorAddr)
 {
+	uint8_t reValue;
+	
 	sf_WriteEnable();								/* 发送写使能命令 */
 
 	/* 擦除扇区操作 */
@@ -136,8 +139,39 @@ void sf_EraseSector(uint32_t _uiSectorAddr)
 	sf_SendByte(_uiSectorAddr & 0xFF);				/* 发送扇区地址低8bit */
 	SF_CS_HIGH();									/* 禁能片选 */
 
-	sf_WaitForWriteEnd();							/* 等待串行Flash内部写操作完成 */
+	reValue = sf_WaitForWriteEnd();							/* 等待串行Flash内部写操作完成 */
+	
+	return reValue;
 }
+
+
+/*
+*********************************************************************************************************
+*	函 数 名: sf_EraseBlock
+*	功能说明: 擦除指定的Block
+*	形    参:  _uiBlockAddr : Block地址
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+uint8_t sf_EraseBlock(uint32_t _uiBlockAddr)
+{
+	uint8_t reValue;
+	
+	sf_WriteEnable();								/* 发送写使能命令 */
+
+	/* 擦除块操作 */
+	SF_CS_LOW();									/* 使能片选 */
+	sf_SendByte(CMD_BE);								/* 发送擦除命令 */
+	sf_SendByte((_uiBlockAddr & 0xFF0000) >> 16);	/* 发送块地址的高8bit */
+	sf_SendByte((_uiBlockAddr & 0xFF00) >> 8);		/* 发送块地址中间8bit */
+	sf_SendByte(_uiBlockAddr & 0xFF);				/* 发送块地址低8bit */
+	SF_CS_HIGH();									/* 禁能片选 */
+
+	reValue = sf_WaitForWriteEnd();							/* 等待串行Flash内部写操作完成 */
+	
+	return reValue;
+}
+
 
 /*
 *********************************************************************************************************
@@ -147,16 +181,20 @@ void sf_EraseSector(uint32_t _uiSectorAddr)
 *	返 回 值: 无
 *********************************************************************************************************
 */
-void sf_EraseChip(void)
+uint8_t sf_EraseChip(void)
 {
+	uint8_t reValue;
+	
 	sf_WriteEnable();								/* 发送写使能命令 */
 
 	/* 擦除扇区操作 */
 	SF_CS_LOW();									/* 使能片选 */
-	sf_SendByte(CMD_BE);							/* 发送整片擦除命令 */
+	sf_SendByte(CMD_CE);							/* 发送整片擦除命令 */
 	SF_CS_HIGH();									/* 禁能片选 */
 
-	sf_WaitForWriteEnd();							/* 等待串行Flash内部写操作完成 */
+	reValue = sf_WaitForWriteEnd();							/* 等待串行Flash内部写操作完成 */
+	
+	return reValue;	
 }
 
 /*
@@ -382,6 +420,7 @@ static uint8_t sf_AutoWritePage(uint8_t *_ucpSrc, uint32_t _uiWrAddr, uint16_t _
 	uint32_t uiFirstAddr;		/* 扇区首址 */
 	uint8_t ucNeedErase;		/* 1表示需要擦除 */
 	uint8_t cRet;
+	//uint8_t tmpbuf[1024] = {0};//jdb2019-03-11测试用
 
 	/* 长度为0时不继续操作,直接认为成功 */
 	if (_usWrLen == 0)
@@ -407,6 +446,8 @@ static uint8_t sf_AutoWritePage(uint8_t *_ucpSrc, uint32_t _uiWrAddr, uint16_t _
 	{
 		return 1;
 	}
+
+	//sf_ReadBuffer(tmpbuf, 0x10000, 1024);//jdb2019-03-11测试用
 
 	/* 判断是否需要先擦除扇区 */
 	/* 如果旧数据修改为新数据，所有位均是 1->0 或者 0->0, 则无需擦除,提高Flash寿命 */
@@ -746,11 +787,151 @@ static void sf_WriteStatus(uint8_t _ucValue)
 *	返 回 值: 无
 *********************************************************************************************************
 */
-static void sf_WaitForWriteEnd(void)
+static uint8_t sf_WaitForWriteEnd(void)
 {
+	uint8_t reValue;
+	uint32_t DelayFor = 0;			// 	超时设置
+	uint8_t flashstatus = 0;
+	
 	SF_CS_LOW();									/* 使能片选 */
 	sf_SendByte(CMD_RDSR);							/* 发送命令， 读状态寄存器 */
-	while((sf_SendByte(DUMMY_BYTE) & WIP_FLAG) == SET);	/* 判断状态寄存器的忙标志位 */
+	do
+	{
+		flashstatus = sf_SendByte(DUMMY_BYTE);
+	}while(((flashstatus & WIP_FLAG) == SET)&& (++DelayFor<SFLASH_TIMEOUT));	/* 判断状态寄存器的忙标志位 */
 	SF_CS_HIGH();									/* 禁能片选 */
+	
+  if ((flashstatus & WIP_FLAG) == SET)
+  	return(ERROR);
+  return (SUCCESS);	
 }
+
+
+
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ouhs 20190304//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+//读取一个字节
+uint8_t FlashReadByte(uint32_t Addr)
+{
+	uint8_t c;
+	
+	sf_ReadBuffer(&c, Addr, 1);
+	return c;
+}
+
+//按字节读取buff
+uint8_t spi_bFlashReadBuffer(uint8_t* pBuffer, uint32_t ReadAddr, uint32_t NumBytesToRead)
+{
+	sf_ReadBuffer(pBuffer, ReadAddr, NumBytesToRead);
+	
+	return SUCCESS;
+}
+
+//写入一个字节
+uint8_t spi_bFlashWrite( uint32_t ulOff, uint8_t ucVal )
+{
+	uint8_t reValue;
+
+	#if defined(CASE_FORHANZI)
+	while( TestPrintGoingOn() )	{};//打印时,禁止操作Flash
+#endif
+	
+	reValue = sf_WriteBuffer(&ucVal, ulOff, 1);
+	
+	return reValue;	
+}
+
+//按字节写入buff
+uint8_t spi_bFlashProgram( uint32_t ulOff, uint32_t NumBytes, uint8_t *Array )
+{
+	uint8_t reValue;
+
+#if defined(CASE_FORHANZI)
+	while( TestPrintGoingOn() )	{};//打印时,禁止操作Flash
+#endif
+		
+	reValue = sf_WriteBuffer(Array, ulOff, NumBytes);
+	
+	return reValue;
+}
+
+
+//擦除N个SECTOR
+//ucSector:SECTOR起始地址
+//ucNumSectors:擦除SECTOR数量
+uint8_t bFlashMSectorErase(uint32_t ucSector, uint32_t ucNumSectors)
+{
+	uint8_t reValue;
+	uint32_t CurrentSec;
+
+#if defined(CASE_FORHANZI)
+	while( TestPrintGoingOn() )	{};//打印时,禁止操作Flash
+#endif	
+	
+	// 检查入口参数
+	if ((ucSector > SFLASH_SECTOR_MAXNUM)||((ucSector+ucNumSectors) > SFLASH_SECTOR_MAXNUM) || (ucNumSectors==0))
+  {
+		return (ERROR);
+  }
+	
+  // 若从0 sector擦除数量为SFLASH_SECTOR_MAXNUM,则执行芯片擦除
+  if ((ucSector == 0) && (ucNumSectors == SFLASH_SECTOR_MAXNUM))
+  {
+  	reValue = sf_EraseChip();
+  	return (reValue);
+  }
+
+  // 开始擦除数个扇区
+	CurrentSec = ucSector;
+	while(ucNumSectors--);
+	{
+		reValue = sf_EraseSector(CurrentSec++);
+		if (reValue == ERROR)
+			return (ERROR);
+	}
+
+  return (SUCCESS);
+}
+
+
+//擦除N个BLOCK
+//ucBlock:BLOCK起始地址
+//ucNumBlocks:擦除BLOCK数量
+uint8_t spi_bFlashMBlockErase(uint32_t ucBlock, uint32_t ucNumBlocks)
+{
+	uint8_t reValue;
+	uint32_t CurrentSec;
+	uint32_t ucBlockAddr;//jdb2019-03-11块地址
+
+#if defined(CASE_FORHANZI)
+	while( TestPrintGoingOn() )	{};//打印时,禁止操作Flash
+#endif	
+	
+	// 检查入口参数
+	if ((ucBlock > SFLASH_BLOCK_MAXNUM)||((ucBlock+ucNumBlocks) > SFLASH_BLOCK_MAXNUM) || (ucNumBlocks==0))
+  {
+		return (ERROR);
+  }
+	
+  // 若从0 sector擦除数量为SFLASH_SECTOR_MAXNUM,则执行芯片擦除
+  if ((ucBlock == 0) && (ucNumBlocks == SFLASH_BLOCK_MAXNUM))
+  {
+  	reValue = sf_EraseChip();
+  	return (reValue);
+  }
+
+  // 开始擦除数个扇区
+	CurrentSec = ucBlock;
+	while(ucNumBlocks--)
+	{
+		ucBlockAddr = 0x10000 * CurrentSec++;//jdb2019-03-11计算块地址
+		reValue = sf_EraseBlock(ucBlockAddr);
+		if (reValue == ERROR)
+			return (ERROR);
+	}
+
+  return (SUCCESS);	
+}
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 

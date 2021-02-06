@@ -1,5 +1,5 @@
 .\obj\obj_er-260f\usbh_msc_usr.o: Utilities\USB_APP\usbh_msc_usr.c
-.\obj\obj_er-260f\usbh_msc_usr.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\obj_er-260f\usbh_msc_usr.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\obj_er-260f\usbh_msc_usr.o: .\Libraries\STM32_USB_Device_Library\Core\inc\usbd_usr.h
 .\obj\obj_er-260f\usbh_msc_usr.o: .\Libraries\STM32_USB_Device_Library\Core\inc\usbd_core.h
 .\obj\obj_er-260f\usbh_msc_usr.o: .\Libraries\STM32_USB_OTG_Driver\inc\usb_dcd.h
@@ -7,7 +7,7 @@
 .\obj\obj_er-260f\usbh_msc_usr.o: .\Utilities\USB_APP\inc\usb_conf.h
 .\obj\obj_er-260f\usbh_msc_usr.o: .\USER\inc\stm32f2xx.h
 .\obj\obj_er-260f\usbh_msc_usr.o: .\Libraries\CMSIS\Include\core_cm3.h
-.\obj\obj_er-260f\usbh_msc_usr.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\obj_er-260f\usbh_msc_usr.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\obj_er-260f\usbh_msc_usr.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\obj\obj_er-260f\usbh_msc_usr.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\obj\obj_er-260f\usbh_msc_usr.o: .\Libraries\CMSIS\system_stm32f2xx.h
@@ -52,7 +52,7 @@
 .\obj\obj_er-260f\usbh_msc_usr.o: .\Libraries\STM32_USB_OTG_Driver\inc\usb_hcd.h
 .\obj\obj_er-260f\usbh_msc_usr.o: .\Libraries\STM32_USB_HOST_Library\Core\inc\usbh_def.h
 .\obj\obj_er-260f\usbh_msc_usr.o: .\Utilities\USB_APP\inc\usbh_conf.h
-.\obj\obj_er-260f\usbh_msc_usr.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\obj_er-260f\usbh_msc_usr.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\obj\obj_er-260f\usbh_msc_usr.o: .\Libraries\STM32_USB_HOST_Library\Class\MSC\inc\usbh_msc_core.h
 .\obj\obj_er-260f\usbh_msc_usr.o: .\Libraries\STM32_USB_HOST_Library\Core\inc\usbh_stdreq.h
 .\obj\obj_er-260f\usbh_msc_usr.o: .\Libraries\STM32_USB_OTG_Driver\inc\usb_bsp.h

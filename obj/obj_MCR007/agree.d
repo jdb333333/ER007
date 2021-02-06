@@ -1,13 +1,13 @@
 .\obj\obj_mcr007\agree.o: EOSCLCD\Agree.c
 .\obj\obj_mcr007\agree.o: EOSCLCD\king.h
-.\obj\obj_mcr007\agree.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
-.\obj\obj_mcr007\agree.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
-.\obj\obj_mcr007\agree.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\obj\obj_mcr007\agree.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\obj_mcr007\agree.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\obj_mcr007\agree.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\obj_mcr007\agree.o: EOSCLCD\debug.h
 .\obj\obj_mcr007\agree.o: .\USER\inc\include.h
 .\obj\obj_mcr007\agree.o: .\USER\inc\stm32f2xx.h
 .\obj\obj_mcr007\agree.o: .\Libraries\CMSIS\Include\core_cm3.h
-.\obj\obj_mcr007\agree.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\obj_mcr007\agree.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\obj_mcr007\agree.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\obj\obj_mcr007\agree.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\obj\obj_mcr007\agree.o: .\Libraries\CMSIS\system_stm32f2xx.h

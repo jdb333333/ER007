@@ -122,22 +122,22 @@ CONST struct APPTEXT DefaultText = {
 CONST struct APPLICATION Default = {
 	#ifdef CASE_MCR30 //jdb2018-09-03
     {   /* FirmKeys[FIRMKEYS],Can't exchange position of the list */
-		fCLEAR		,		//ID_CLEAR  0,firmkey clear. It must be the first byte!!!!!!.
-		fOCPRINTER	,		//ID_xPRINT 1,Set Time
-		fDATE		,		//ID_DATE   2,Display Date
+		cCLEAR		,		//ID_CLEAR  0,firmkey clear. It must be the first byte!!!!!!.
+		0xff	,		//ID_xPRINT 1,Set Time
+		0xff		,		//ID_DATE   2,Display Date
 		cRIGHT		,		//ID_RIGHT  3,
-		fPRGTYPE	,       //ID_SELECT 4 programming Type key
+		cSELECT	,       //ID_SELECT 4 programming Type key
 		cLEFT		,       //ID_LEFT   5 Programming number
-		fPRGENTER	,       //ID_ENTER  6 programming Enter
+		cENTER	,       //ID_ENTER  6 programming Enter
 		0xff		,       //ID_PRGOPT 7 Programming option invert
 		cUP		    ,       //ID_UP     8 system report trigger
 		cDOWN		,       //ID_DOWN   9
-		fDUMP		,       //ID_DUMP   10
-		0xff	,       //ID_xDEPT  11 Alfa Shift 1
-		0xff,       //ID_xINPUT 12 Alfa Shift 2
-		fLOCK		,      	//ID_LOCK   13 mode lock
-		fCANCEL		,		//ID_CANCEL 14 Mode lock
-		fRJFEED		,		//ID_RJFEED 15 confirm OK
+		0xff		,       //ID_DUMP   10
+		cSHIFTDEPT	,       //ID_xDEPT  11 Alfa Shift 1
+		cSHIFTHZ_ASC,       //ID_xINPUT 12 Alfa Shift 2
+		cLOCK		,      	//ID_LOCK   13 mode lock
+		cEXIT		,		//ID_CANCEL 14 Mode lock
+		cRJFEED		,		//ID_RJFEED 15 confirm OK
 
     },
 		#else
@@ -283,6 +283,13 @@ CONST struct APPLICATION Default = {
 	},
 	#elif defined(CASE_MCR30)//jdb2018-09-02
 	{//  KeyTable[128]
+	#if 1
+		MODELOCK,   JPF,    xLASTONE,  MULT,       SHIFT1,     DISC_PERDEC,
+        FUNCLOOK1,   '7',    '8',    '9',        DEPT+4,     DISC_NETDEC,//海量测试需要DISC+4(现金折扣)
+        NPRICE,   '4',    '5',    '6',        DEPT+3,     xRECEIPT,
+        PLU1,       '1',    '2',    '3',        DEPT+2,     SUB,
+        CLEAR,      '0',    ZERO2,  '.',        DEPT+1,     TEND_CASH,
+	#else
         MODELOCK,   JPF,    DISC_PERDEC,  MULT,       DEPT+5,     SHIFT1,
         xRECEIPT,   '7',    '8',    '9',        DEPT+4,     TEND_VISA,//海量测试需要DISC+4(现金折扣)
         xLASTONE,   '4',    '5',    '6',        DEPT+3,     PORA+1,
@@ -295,6 +302,7 @@ CONST struct APPLICATION Default = {
         xREFUND,    0,      0,      0,          0,          DATETIME,
         0,
         //<<<<<<<<<<<<<<<<<<
+        #endif
     },
 
 #endif
@@ -1271,7 +1279,8 @@ CONST char GrapSet[4][tCAPWIDTH]={
 };
 
 
-CONST BYTE	ASCIIKEY[MAXKEYB]={
+//CONST BYTE	ASCIIKEY[MAXKEYB]={
+BYTE	ASCIIKEY[MAXKEYB]={//jdb2019-03-05适应九宫格，里面的数值会变动
 #if (CASE_GIADA3000)
             0,      0,	    'a',	'b',	'c',	0,	//00-05
             0,	    0,	    'd',	'e',	'f',	0,	//06-11
@@ -1305,7 +1314,19 @@ CONST BYTE	ASCIIKEY[MAXKEYB]={
 			0,		0,		0,		0,		0,		0,		0,		0,		0,		0,
 			0,		0,		0,		0,		0,		0,
 #elif (defined(CASE_MCR30))
+#if 1//jdb2019-03-05九宫格，以'.'~'9'来索引
+0,		0,		0,		0,		0,	0,//'b',
+0,	'j',	'k',	'l',	0,	0,//'h',
+0,	'g',	'h',	'i',	0,	0,//'n',
+0,	'd',	'e',	'f',	0,	0,//'t',
+0,	'c',	'b',	'a',	0,	0,//'z',
+0,		0,		0,		0,		0,		0,
+0,		0,		0,		0,		0,		0,
+0,		0,		0,		0,		0,		0,
+0,		0,		0,		0,		0,		0,
+0,
 
+#else
 		0,		0,		0,		0,		'a',	0,//'b',
 		'c',	'd',	'e',	'f',	'g',	0,//'h',
 		'i',	'j',	'k',	'l',	'm',	0,//'n',
@@ -1316,7 +1337,7 @@ CONST BYTE	ASCIIKEY[MAXKEYB]={
 		0,		0,		0,		0,		0,		0,
 		0,		0,		0,		0,		0,		0,
 		0,
-
+#endif
 #elif CASE_ER260
             0,		0,	    'a',	'b',	'c',	'd',	    '~',	0,		//00-07
             0,	    'e',	'f',	'g',	'h',	'i',		'j',	0,	//08-15
@@ -1348,7 +1369,8 @@ CONST BYTE	ASCIIKEY[MAXKEYB]={
 };
 
 
-CONST BYTE	NUMASCII[MAXKEYB]={
+//CONST BYTE	NUMASCII[MAXKEYB]={
+BYTE	NUMASCII[MAXKEYB]={//jdb2019-03-05适应九宫格，里面的数值会变动
 #if (CASE_GIADA3000)
     0,	    0,	    '$',	'%',	'^',	0,	//00-05
     0,	    0,	    '(',	')',	'-',	0,	//06-11
@@ -1382,6 +1404,18 @@ CONST BYTE	NUMASCII[MAXKEYB]={
     0,		0,		0,		0,		0,		0,		0,		0,		0,		0,
     0,		0,		0,		0,		0,		0,
 #elif (defined(CASE_MCR30))
+#if 1//jdb2019-03-05九宫格，以'.'~'9'来索引
+	0,		0,		0,		0,		0,	0,//'b',
+	0,	'7',	'8',	'9',	0,	0,//'h',
+	0,	'4',	'5',	'6',	0,	0,//'n',
+	0,	'1',	'2',	'3',	0,	0,//'t',
+	0,	'0',	0,	'.',	0,	0,//'z',
+	0,		0,		0,		0,		0,		0,
+	0,		0,		0,		0,		0,		0,
+	0,		0,		0,		0,		0,		0,
+	0,		0,		0,		0,		0,		0,
+	0,
+#else
 	0,      0,      0,      0,      '/',    0,
     '(',    '7',    '8',    '9',    128,    0,
     ')',    '4',    '5',    '6',    '-',    0,
@@ -1392,7 +1426,7 @@ CONST BYTE	NUMASCII[MAXKEYB]={
     0,      0,      0,      0,      0,      0,
     0,      0,      0,      0,      0,      0,
     0,
-
+#endif
 #elif CASE_ER260
     0,		0,	    '!',	':',	'#',	'$',	    '~',	0,		//00-07
     0,	    '7',	'8',	'9',	'%',	'^',		'&',	0,	//08-15

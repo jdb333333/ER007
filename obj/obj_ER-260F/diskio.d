@@ -6,7 +6,7 @@
 .\obj\obj_er-260f\diskio.o: .\USER\inc\sdio_sd.h
 .\obj\obj_er-260f\diskio.o: .\USER\inc\stm32f2xx.h
 .\obj\obj_er-260f\diskio.o: .\Libraries\CMSIS\Include\core_cm3.h
-.\obj\obj_er-260f\diskio.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\obj_er-260f\diskio.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\obj_er-260f\diskio.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\obj\obj_er-260f\diskio.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\obj\obj_er-260f\diskio.o: .\Libraries\CMSIS\system_stm32f2xx.h

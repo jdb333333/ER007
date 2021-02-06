@@ -1,13 +1,13 @@
 .\obj\obj_er-260f\iccard.o: EOSCLCD\ICCard.c
 .\obj\obj_er-260f\iccard.o: EOSCLCD\king.h
-.\obj\obj_er-260f\iccard.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
-.\obj\obj_er-260f\iccard.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
-.\obj\obj_er-260f\iccard.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\obj\obj_er-260f\iccard.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\obj_er-260f\iccard.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\obj_er-260f\iccard.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\obj_er-260f\iccard.o: EOSCLCD\debug.h
 .\obj\obj_er-260f\iccard.o: .\USER\inc\include.h
 .\obj\obj_er-260f\iccard.o: .\USER\inc\stm32f2xx.h
 .\obj\obj_er-260f\iccard.o: .\Libraries\CMSIS\Include\core_cm3.h
-.\obj\obj_er-260f\iccard.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\obj_er-260f\iccard.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\obj_er-260f\iccard.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\obj\obj_er-260f\iccard.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\obj\obj_er-260f\iccard.o: .\Libraries\CMSIS\system_stm32f2xx.h

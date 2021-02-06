@@ -2,7 +2,7 @@
 .\obj\obj_mcr007\stm32f2xx_it.o: .\USER\inc\stm32f2xx_it.h
 .\obj\obj_mcr007\stm32f2xx_it.o: .\USER\inc\stm32f2xx.h
 .\obj\obj_mcr007\stm32f2xx_it.o: .\Libraries\CMSIS\Include\core_cm3.h
-.\obj\obj_mcr007\stm32f2xx_it.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\obj_mcr007\stm32f2xx_it.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\obj_mcr007\stm32f2xx_it.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\obj\obj_mcr007\stm32f2xx_it.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\obj\obj_mcr007\stm32f2xx_it.o: .\Libraries\CMSIS\system_stm32f2xx.h
@@ -36,7 +36,7 @@
 .\obj\obj_mcr007\stm32f2xx_it.o: .\Libraries\STM32F2xx_StdPeriph_Driver\inc\misc.h
 .\obj\obj_mcr007\stm32f2xx_it.o: .\USER\inc\sdio_sd.h
 .\obj\obj_mcr007\stm32f2xx_it.o: .\USER\inc\usart.h
-.\obj\obj_mcr007\stm32f2xx_it.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\obj_mcr007\stm32f2xx_it.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\obj\obj_mcr007\stm32f2xx_it.o: .\USER\inc\TypeDef.h
 .\obj\obj_mcr007\stm32f2xx_it.o: .\EOSCLCD\chnDisp.h
 .\obj\obj_mcr007\stm32f2xx_it.o: .\Libraries\STM32_USB_OTG_Driver\inc\usb_bsp.h

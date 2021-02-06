@@ -2,7 +2,7 @@
 .\obj\obj_mcr007\flashb.o: .\USER\inc\Flashb.h
 .\obj\obj_mcr007\flashb.o: .\USER\inc\stm32f2xx.h
 .\obj\obj_mcr007\flashb.o: .\Libraries\CMSIS\Include\core_cm3.h
-.\obj\obj_mcr007\flashb.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\obj_mcr007\flashb.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\obj_mcr007\flashb.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\obj\obj_mcr007\flashb.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\obj\obj_mcr007\flashb.o: .\Libraries\CMSIS\system_stm32f2xx.h

@@ -101,6 +101,9 @@ void main()
 #if defined(CASE_INNERDOTPRN)
     CheckPrinter(0);
 #endif
+	SIM800_PowerOn();//jdb2019-02-27
+	//GPRSDealy(SECONDS(5));//jdb2019-02-27
+	
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     for (;;)         /* Exit loop only with power fail */
 #endif
@@ -722,11 +725,19 @@ WORD KeyInput(WORD  keyno)
 
     if (keyno==0)
     {
-
+#if 1//jdb2019-03-08 有虚拟按键
+	keyno = GetInputByListItems();
+	if(keyno){
+		keyno = 0x100 | KeyFrHost;
+		ApplVar.KeyNo = KeyFrHost;
+	}else{
+		keyno = ChnInput(0);
+	}
+#else
         GetInputByListItems();//ccr2016-01-14从ListItems功能中获取虚拟按键
 
         keyno = ChnInput(0);
-
+#endif
         if (!keyno)
             return 0;
         if (StrForST0)
@@ -781,7 +792,10 @@ WORD KeyInput(WORD  keyno)
                     if (ApplVar.KeyNo == ApplVar.AP.FirmKeys[ID_ENTER])
                         ApplVar.DispKey.Code = ApplVar.KeyNo;
                     ApplVar.Key.Code = 0;
-                    return FALSE;
+					if(Appl_ProgLine>1 && ApplVar.KeyNo == ApplVar.AP.FirmKeys[ID_DELETE]){//jdb2019-03-12编辑模式下有删除键
+						keyno = 0x0100 | ApplVar.KeyNo;
+						}else
+					return FALSE;
                 } else if (ApplVar.Key.C.High && ApplVar.CentralLock == RG && ApplVar.Key.Code != CLEAR &    /* function ? */
                            (ApplVar.AP.Manager[keyno >> 3] & (0x01 << (keyno & 7))))       //used only in MG
                 {
@@ -907,6 +921,10 @@ void OutPrint(WORD Cmd, char *Line)
 				SavePrintStr(TESTBIT(ApplVar.PrintLayOut,BIT2)?CMDP_DR:CMDP_R, spacebuf);//jdb2018-08-21 保存打印文本
 			}
 		}
+
+	#if 0//jdb2019-03-08 调试用，不打印
+	return;
+	#endif
 
 #if (defined(CASE_EJSD) || defined(CASE_EJFLASH))
     if (ApplVar.CentralLock==SET && TESTBIT(ApplVar.EJVar.ContFlag,EJDOCHEAD) && !CheckEJError(true))

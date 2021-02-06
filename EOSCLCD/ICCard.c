@@ -2072,7 +2072,8 @@ void ReadECRVIPVar()
     {
         if (ECRVIP.CurrentVIPVar!=FLASH_ECRVIPVAR1_ADDR)
         {
-            memcpy(ECRVIP.VipVar,ECRVIPVar1,sizeof(ECRVIP.VipVar));//bFlashReadBuffer((BYTE*)&ECRVIP.VipVar,FLASH_ECRVIPVAR1_ADDR,sizeof(ECRVIP.VipVar));
+            memcpy(ECRVIP.VipVar,ECRVIPVar1,sizeof(ECRVIP.VipVar));
+			//bFlashReadBuffer((BYTE*)&ECRVIP.VipVar,FLASH_ECRVIPVAR1_ADDR,sizeof(ECRVIP.VipVar));
             ECRVIP.CurrentVIPVar=FLASH_ECRVIPVAR1_ADDR;
         }
     }
@@ -2080,7 +2081,8 @@ void ReadECRVIPVar()
     {
         if (ECRVIP.CurrentVIPVar!=FLASH_ECRVIPVAR2_ADDR)
         {
-            memcpy(ECRVIP.VipVar,ECRVIPVar2,sizeof(ECRVIP.VipVar));//bFlashReadBuffer((BYTE*)&ECRVIP.VipVar,FLASH_ECRVIPVAR2_ADDR,sizeof(ECRVIP.VipVar));//FLASH_ECRVIPVAR2_SIZE
+            memcpy(ECRVIP.VipVar,ECRVIPVar2,sizeof(ECRVIP.VipVar));
+			//bFlashReadBuffer((BYTE*)&ECRVIP.VipVar,FLASH_ECRVIPVAR2_ADDR,sizeof(ECRVIP.VipVar));//FLASH_ECRVIPVAR2_SIZE
             ECRVIP.CurrentVIPVar=FLASH_ECRVIPVAR2_ADDR;
         }
     }
@@ -2096,16 +2098,26 @@ void WriteECRVIPVar()
 {
     if (ECRVIP.ECRVIPNumber<ECRVIPMAX/2)
     {
+    #if defined(CASE_RAMVIP)//jdb2019-03-07 ECRVIP放SRAM区
+	memset((char *)ECRVIPVar1, 0, FLASH_ECRVIPVAR1_SIZE);
+	memcpy((char *)ECRVIPVar1, (uint8_t *)&ECRVIP.VipVar, sizeof(ECRVIP.VipVar));
+	#else
         bFlashMBlockErase(FLASH_ECRVIPVAR1_BLOCKFr,FLASH_ECRVIPVAR1_BLOCKS);
         bFlashProgram(FLASH_ECRVIPVAR1_ADDR, sizeof(ECRVIP.VipVar),(uint8_t *)&ECRVIP.VipVar );
+	#endif
 #if defined(DEBUGBYPC)
         memcpy(ECRVIPVar1,ECRVIP.VipVar,sizeof(ECRVIPVar1));
 #endif
     }
     else if (ECRVIP.ECRVIPNumber<ECRVIPMAX)
     {
+    	#if defined(CASE_RAMVIP)//jdb2019-03-07 ECRVIP放SRAM区
+		memset((char *)ECRVIPVar2, 0, FLASH_ECRVIPVAR2_SIZE);
+		memcpy((char *)ECRVIPVar2, (uint8_t *)&ECRVIP.VipVar, sizeof(ECRVIP.VipVar));
+		#else
         bFlashMBlockErase(FLASH_ECRVIPVAR2_BLOCKFr,FLASH_ECRVIPVAR2_BLOCKS);
         bFlashProgram(FLASH_ECRVIPVAR2_ADDR, sizeof(ECRVIP.VipVar),(uint8_t *)&ECRVIP.VipVar );
+		#endif
 #if defined(DEBUGBYPC)
         memcpy(ECRVIPVar2,ECRVIP.VipVar,sizeof(ECRVIPVar1));
 #endif
@@ -2120,8 +2132,12 @@ void WriteECRVIPVar()
  ..........................................................*/
 void InitECRVIP()
 {
+	#if defined(CASE_RAMVIP)//jdb2019-03-07 ECRVIP放SRAM区
+	memset((char *)ECRVIPVar1, 0, FLASH_ECRVIPVAR1_SIZE + FLASH_ECRVIPVAR2_SIZE + FLASH_ECRVIPFIX_SIZE);
+	#else
      bFlashMBlockErase(FLASH_ECRVIPVAR1_BLOCKFr,FLASH_ECRVIPVAR1_BLOCKS+FLASH_ECRVIPVAR2_BLOCKS+FLASH_ECRVIPFIX_BLOCKS);
-     ApplVar.ICCardSet.ECRVIPCount=0;
+	#endif
+	 ApplVar.ICCardSet.ECRVIPCount=0;
      ECRVIP.ECRVIPState=0; // ECRVIPState操作标志
      ECRVIP.CurrentVIPVar=0; // ECRVIPState操作标志
 }
@@ -2164,14 +2180,21 @@ void AddNewECRVIP()
 #if defined(DEBUGBYPC)
         ECRVIPFix[vipNumber]=ECRVIP.VipFix;
 #endif
+#if defined(CASE_RAMVIP)//jdb2019-03-07 ECRVIP放SRAM区
+	memcpy((char *)ECRVIPFix+vipNumber*sizeof(struct  TECRVIPFix), (uint8_t *)&ECRVIP.VipFix, sizeof(struct TECRVIPFix));
+#else
         bFlashProgram(FLASH_ECRVIPFIX_ADDR+vipNumber*sizeof(struct  TECRVIPFix), sizeof(struct TECRVIPFix),(uint8_t *)&ECRVIP.VipFix);
-        ECRVIP.ECRVIPNumber=vipNumber;
+#endif
+		ECRVIP.ECRVIPNumber=vipNumber;
         ECRVIP.ECRVIPState=0;
         sVIPVar.VipPoints=0;
         sVIPVar.VipAmt=0;
         //将计点数据清零
+        #if defined(CASE_RAMVIP)//jdb2019-03-07 ECRVIP放SRAM区
+		memcpy((char *)ECRVIPVar1+vipNumber*sizeof(struct  TECRVIPVar), (uint8_t *)&sVIPVar, sizeof(struct TECRVIPVar));
+		#else
         bFlashProgram(FLASH_ECRVIPVAR1_ADDR+vipNumber*sizeof(struct  TECRVIPVar), sizeof(struct TECRVIPVar),(uint8_t *)&sVIPVar);
-
+		#endif
         ApplVar.ICCardSet.ECRVIPCount++;
 
         vipNumber &= (ECRVIPMAX/2-1);

@@ -2,7 +2,7 @@
 .\obj\obj_mcr007\sdio_sd.o: .\USER\inc\sdio_sd.h
 .\obj\obj_mcr007\sdio_sd.o: .\USER\inc\stm32f2xx.h
 .\obj\obj_mcr007\sdio_sd.o: .\Libraries\CMSIS\Include\core_cm3.h
-.\obj\obj_mcr007\sdio_sd.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\obj_mcr007\sdio_sd.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\obj_mcr007\sdio_sd.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\obj\obj_mcr007\sdio_sd.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\obj\obj_mcr007\sdio_sd.o: .\Libraries\CMSIS\system_stm32f2xx.h

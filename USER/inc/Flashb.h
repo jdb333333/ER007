@@ -13,6 +13,32 @@
 #include "TypeDef.h"
 #endif
 
+#if defined(CASE_RAMVIP)//jdb2019-03-07 ECRVIP放SRAM区
+//ECRVIP会员数据存储区
+#define FLASH_ECRVIPVAR1_ADDR   (ADDR_EXTRAM + SRAMSIZE - SIZE_VIPRAM)
+#define FLASH_ECRVIPVAR1_SIZE	0x02000		//8K
+
+#define FLASH_ECRVIPVAR2_ADDR   (FLASH_ECRVIPVAR1_ADDR + FLASH_ECRVIPVAR1_SIZE)
+#define FLASH_ECRVIPVAR2_SIZE	0x02000		//8K
+
+#define FLASH_ECRVIPFIX_ADDR    (FLASH_ECRVIPVAR2_ADDR + FLASH_ECRVIPVAR2_SIZE)
+#define FLASH_ECRVIPFIX_SIZE	0x08000		//32K
+#endif
+
+#if defined(CASE_SPI25W25Q16)//jdb2019-03-07使用SPI_W25Q16
+#define	FLASH_LOG_BLOCKFr	        1
+#define	FLASH_LOG_BLOCKS            16		//640Kx16bit=1280KB	 用于存储数据
+#define	FLASH_LOG_ADDR	            0x010000L //BlockOffset[15]
+#define	FLASH_LOG_SIZE	            (FLASH_LOG_BLOCKS*0x10000L)		//用于存储数据
+
+extern int bFlashMBlockErase(int ucBlock, int ucNumBlocks);
+extern void bFlashWrite( uint32_t ulOff, uint8_t ucVal );
+extern int bFlashProgram( uint32_t ulOff, uint32_t NumBytes, uint8_t *Array );
+
+extern uint8_t wFlashReadBuffer(uint16_t* pBuffer, uint32_t ReadAddr, uint32_t NumHalfwordToRead);
+extern uint8_t bFlashReadBuffer(uint8_t* pBuffer, uint32_t ReadAddr, uint32_t NumBytesToRead);
+#else
+
 /* Target Flash Device: MX29XXXX */
 
 #define MX29LV160DBTI	1
@@ -37,6 +63,28 @@ FlashRead() or FlashWrite() may not use BASE_ADDRB */
 #define  FlashSID   0xC2
 #define  FlashDID0  0x2249     //MX29LV160D top boot: 0x22C4, bottom boot: 0x2249
 
+#if defined(CASE_SPI25W25Q16)//jdb2019-03-07使用SPI_W25Q16
+//ECRVIP会员数据存储区
+#define FLASH_ECRVIPVAR1_ADDR   0x010000L
+#define FLASH_ECRVIPVAR1_SIZE	0x010000		//64K
+#define FLASH_ECRVIPVAR1_BLOCKFr 1
+#define FLASH_ECRVIPVAR1_BLOCKS	 1
+
+#define FLASH_ECRVIPVAR2_ADDR   0x020000L
+#define FLASH_ECRVIPVAR2_SIZE	0x010000		//64K
+#define FLASH_ECRVIPVAR2_BLOCKFr 2
+#define FLASH_ECRVIPVAR2_BLOCKS	 1
+
+#define FLASH_ECRVIPFIX_ADDR    0x030000L
+#define FLASH_ECRVIPFIX_SIZE	0x010000		//64K
+#define FLASH_ECRVIPFIX_BLOCKFr	3
+#define FLASH_ECRVIPFIX_BLOCKS	1
+
+#define	FLASH_LOG_BLOCKFr	        4
+#define	FLASH_LOG_BLOCKS            19		//640Kx16bit=1280KB	 用于存储数据
+#define	FLASH_LOG_ADDR	            0x040000L //BlockOffset[15]
+#define	FLASH_LOG_SIZE	            (FLASH_LOG_BLOCKS*0x10000L)		//用于存储数据
+#else
 //ccr2016-05-13>>>>>>>>>>>>>>>>>>>>>>>>
 //ECRVIP会员数据存储区
 #define FLASH_ECRVIPVAR1_ADDR   0x004000L
@@ -53,6 +101,7 @@ FlashRead() or FlashWrite() may not use BASE_ADDRB */
 #define FLASH_ECRVIPFIX_SIZE	0x08000		//32Kx8bit
 #define FLASH_ECRVIPFIX_BLOCKFr	3
 #define FLASH_ECRVIPFIX_BLOCKS	1
+
 
 #if defined(CASE_FORHANZI)
 // BYTE模式下字库地址 和 数据空间地址
@@ -81,6 +130,7 @@ FlashRead() or FlashWrite() may not use BASE_ADDRB */
 #define	FLASH_LOG_BLOCKS            19		//640Kx16bit=1280KB	 用于存储数据
 #define	FLASH_LOG_ADDR	            0x0d0000L //BlockOffset[15]
 #define	FLASH_LOG_SIZE	            (FLASH_LOG_BLOCKS*0x10000L)		//用于存储数据
+#endif
 #endif
 
 /*******************************************************************************
@@ -173,4 +223,5 @@ extern uint8_t bFlashReadBuffer(uint8_t* pBuffer, uint32_t ReadAddr, uint32_t Nu
 #define FlashReadWord(Addr)     *(__IO uint16_t*)(Addr)
 #define FlashReadByte(Addr)     *(__IO uint8_t*)(Addr)
 
+#endif
 #endif

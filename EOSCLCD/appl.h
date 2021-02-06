@@ -43,7 +43,8 @@
 #else
 
 #define     DOWN_GR_SIZE    0x1000  //下载图片大小，MCU内部4K RAM用作用户自定义图片
-#define		SRAMSIZE		0x40000
+//#define		SRAMSIZE		0x40000
+#define		SRAMSIZE		0x100000//jdb2019-03-04
 #define     DOWN_GR_ADDR    BKPSRAM_BASE//下载图片存放位置，使用MCU内部4K RAM
 #define     MCU_RAM_SIZE    0x20000
 
@@ -64,6 +65,12 @@
 #else
 #define SIZE_FLOWRAM    0           //电子流水控件
 #endif
+
+#if defined(CASE_RAMVIP)//jdb2019-03-07 ECRVIP放SRAM区
+#define SIZE_VIPRAM    (0x02000 + 0x02000 + 0x08000)
+//FLASH_ECRVIPVAR1_SIZE + FLASH_ECRVIPVAR2_SIZE + FLASH_ECRVIPFIX_SIZE
+#endif
+
 
 #define HOR_REPORT		1			//ccr100702 采用行方式打印部类和单品报表. //
 
@@ -521,6 +528,23 @@
     #define cDOWN      	cNEXT  // 11
     #define cUP         cLAST	// 12
     #define cCHANGEASC  0x06//
+#elif defined(CASE_MCR30)//ccr2018-05-07>>>>>>>>>>>>>>>>>>
+#define cRJFEED     1
+#define cENTER		29
+#define cEXIT		17
+#define cSELECT 	23
+#define cDELETE 	26
+#define cNEXT		11		 //right arrow
+#define cRIGHT		cNEXT
+#define cLAST		5		 //left arrow
+#define cLEFT		cLAST
+#define cSHIFT		4
+#define cCLEAR		24
+#define cDOWN		cNEXT
+#define cUP 		cLAST
+#define cLOCK 		0
+#define cSHIFTDEPT 	4
+#define cSHIFTHZ_ASC 3
 
 #else//MACRO5150X
     #define cENTER      0x36

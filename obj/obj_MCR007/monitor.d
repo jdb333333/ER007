@@ -1,10 +1,10 @@
 .\obj\obj_mcr007\monitor.o: USER\monitor.c
-.\obj\obj_mcr007\monitor.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\obj\obj_mcr007\monitor.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
 .\obj\obj_mcr007\monitor.o: .\USER\inc\monitor.h
-.\obj\obj_mcr007\monitor.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\obj_mcr007\monitor.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\obj_mcr007\monitor.o: .\USER\inc\stm32f2xx.h
 .\obj\obj_mcr007\monitor.o: .\Libraries\CMSIS\Include\core_cm3.h
-.\obj\obj_mcr007\monitor.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\obj_mcr007\monitor.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\obj_mcr007\monitor.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\obj\obj_mcr007\monitor.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\obj\obj_mcr007\monitor.o: .\Libraries\CMSIS\system_stm32f2xx.h
@@ -37,4 +37,4 @@
 .\obj\obj_mcr007\monitor.o: .\Libraries\STM32F2xx_StdPeriph_Driver\inc\stm32f2xx_wwdg.h
 .\obj\obj_mcr007\monitor.o: .\Libraries\STM32F2xx_StdPeriph_Driver\inc\misc.h
 .\obj\obj_mcr007\monitor.o: .\USER\inc\usart.h
-.\obj\obj_mcr007\monitor.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\obj_mcr007\monitor.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

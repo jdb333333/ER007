@@ -1,13 +1,13 @@
 .\obj\obj_mcr007\menu.o: EOSCLCD\Menu.c
 .\obj\obj_mcr007\menu.o: EOSCLCD\king.h
-.\obj\obj_mcr007\menu.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
-.\obj\obj_mcr007\menu.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
-.\obj\obj_mcr007\menu.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\obj\obj_mcr007\menu.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\obj_mcr007\menu.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\obj_mcr007\menu.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\obj_mcr007\menu.o: EOSCLCD\debug.h
 .\obj\obj_mcr007\menu.o: .\USER\inc\include.h
 .\obj\obj_mcr007\menu.o: .\USER\inc\stm32f2xx.h
 .\obj\obj_mcr007\menu.o: .\Libraries\CMSIS\Include\core_cm3.h
-.\obj\obj_mcr007\menu.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\obj_mcr007\menu.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\obj_mcr007\menu.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\obj\obj_mcr007\menu.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\obj\obj_mcr007\menu.o: .\Libraries\CMSIS\system_stm32f2xx.h

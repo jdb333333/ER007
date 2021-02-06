@@ -3,7 +3,7 @@
 .\obj\obj_mcr007\ethernet_app.o: .\EOSTCPIP\inc\stm32f2x7_eth_conf.h
 .\obj\obj_mcr007\ethernet_app.o: .\USER\inc\stm32f2xx.h
 .\obj\obj_mcr007\ethernet_app.o: .\Libraries\CMSIS\Include\core_cm3.h
-.\obj\obj_mcr007\ethernet_app.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\obj_mcr007\ethernet_app.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\obj\obj_mcr007\ethernet_app.o: .\Libraries\CMSIS\Include\core_cmInstr.h
 .\obj\obj_mcr007\ethernet_app.o: .\Libraries\CMSIS\Include\core_cmFunc.h
 .\obj\obj_mcr007\ethernet_app.o: .\Libraries\CMSIS\system_stm32f2xx.h
@@ -40,9 +40,9 @@
 .\obj\obj_mcr007\ethernet_app.o: .\EOSTCPIP\inc\stm32f2x7_eth_bsp.h
 .\obj\obj_mcr007\ethernet_app.o: .\EOSTCPIP\inc\Tcp_Client.h
 .\obj\obj_mcr007\ethernet_app.o: .\EOSCLCD\king.h
-.\obj\obj_mcr007\ethernet_app.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
-.\obj\obj_mcr007\ethernet_app.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdio.h
-.\obj\obj_mcr007\ethernet_app.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\obj\obj_mcr007\ethernet_app.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\obj_mcr007\ethernet_app.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\obj_mcr007\ethernet_app.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\obj_mcr007\ethernet_app.o: .\EOSCLCD\debug.h
 .\obj\obj_mcr007\ethernet_app.o: .\USER\inc\include.h
 .\obj\obj_mcr007\ethernet_app.o: .\USER\inc\SysTick.h
